@@ -384,7 +384,7 @@ solomon_henry111@outlook.com
 
 #  Personal Philosophy
 
-> **"Great Detection Engineering isn't measured by the number of alerts generated,It's measured by the quality, reliability, automation, and continuous improvement of the detections that protect the enterprise."**
+> **"Great Detection Engineering isn't measured by the number of alerts generated, It's measured by the quality, reliability, automation, and continuous improvement of the detections that protect the enterprise."**
 
 ### — Solomon Henry
 
