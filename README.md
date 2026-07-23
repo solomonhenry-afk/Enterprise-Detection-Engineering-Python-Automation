@@ -328,13 +328,6 @@ Detection Engineering • Python Automation • Security Automation • Detectio
 
 <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=solomonhenry-afk&theme=chartreuse-dark&hide_border=true"/>
 
-</div>
-
-<br>
-
-<div align="center">
-
-<img width="80%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=solomonhenry-afk&theme=github_dark"/>
 
 </div>
 
