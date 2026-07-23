@@ -384,7 +384,7 @@ solomon_henry111@outlook.com
 
 #  Personal Philosophy
 
-> **"Great Detection Engineering isn't measured by the number of alerts generated—it's measured by the quality, reliability, automation, and continuous improvement of the detections that protect the enterprise."**
+> **"Great Detection Engineering isn't measured by the number of alerts generated,It's measured by the quality, reliability, automation, and continuous improvement of the detections that protect the enterprise."**
 
 ### — Solomon Henry
 
@@ -394,7 +394,7 @@ solomon_henry111@outlook.com
 
 #  Enterprise Security Evolution
 
-**Enterprise Detection Engineering Python Automation** is one of the flagship engineering projects within the **Enterprise Security Evolution** portfolio. It demonstrates how Python can automate enterprise Detection Engineering workflows—from metadata validation and Detection-as-Code to ATT&CK coverage analysis, Purple Team validation, security analytics, and executive reporting.
+**Enterprise Detection Engineering Python Automation** is one of the flagship engineering projects within the **Enterprise Security Evolution** portfolio. It demonstrates how Python can automate enterprise Detection Engineering workflows from metadata validation and Detection-as-Code to ATT&CK coverage analysis, Purple Team validation, security analytics, and executive reporting.
 
 This repository reflects the software engineering mindset increasingly expected of modern Detection Engineers and Security Engineers, where automation, repeatability, and measurable security outcomes are as important as technical detection logic.
 
