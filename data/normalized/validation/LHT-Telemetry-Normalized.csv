@@ -1,0 +1,91 @@
+LHT-PurpleTeam-Normalized.csv
+          │
+          │ Validation_ID
+          ▼
+LHT-Telemetry-Normalized.csv
+          │
+          ├── feeds Detection Validation
+          ├── feeds Evidence Correlation
+          ├── feeds Detection Coverage
+          └── feeds Executive Reporting
+
+# ================================================================================
+# Lighthouse Technology - Enterprise Security Evolution
+# Domain 5 - Enterprise Active Directory Penetration Testing & Security Auditing
+# Phase F - Safe Purple Team Validation
+# Dataset: LHT-Telemetry-Normalized.csv
+#
+# PURPOSE
+# -------
+# This normalized dataset records all security telemetry generated during
+# authorized Purple Team validation exercises. It provides a standardized view
+# of endpoint, identity, authentication, network, and infrastructure events
+# collected throughout controlled attack simulations.
+#
+# The dataset enables analysts to verify telemetry completeness, validate
+# detection visibility, correlate evidence across multiple security platforms,
+# and support investigation, detection engineering, and governance reporting.
+#
+# RELATIONSHIPS
+# -------------
+# Parent Dataset
+#   • LHT-PurpleTeam-Normalized.csv
+#
+# Related Datasets
+#   • LHT-DetectionValidation-Normalized.csv
+#   • LHT-DetectionCoverage-Normalized.csv
+#   • LHT-AttackSimulation-Normalized.csv
+#   • LHT-Validation-Metadata.csv
+#
+# Primary Key
+#   • Telemetry_Record_ID
+#
+# Foreign Key
+#   • Validation_ID
+#
+# DATA QUALITY REQUIREMENTS
+# -------------------------
+# • One telemetry event per row.
+# • Validation_ID must reference an existing Purple Team exercise.
+# • Event timestamps should use ISO-8601 format.
+# • Source systems must be uniquely identifiable.
+# • Event IDs should accurately reflect originating platforms.
+# • Telemetry must preserve evidence integrity.
+# • ATT&CK mappings should use official Technique IDs.
+# ================================================================================
+
+Telemetry_Record_ID,Validation_ID,Assessment_ID,Collection_ID,Event_Timestamp,Event_Source,Source_Platform,Source_System,Hostname,IPAddress,Operating_System,Identity,
+Privilege_Level,Event_Category,Event_Subcategory,Event_ID,Event_Name,Log_Source,Telemetry_Type,Collection_Method,Forwarding_Status,SIEM_Platform,Detection_Rule_ID,
+MITRE_Tactic,MITRE_Technique_ID,Attack_Technique,Threat_Scenario,Correlation_ID,Evidence_ID,Evidence_Status,Integrity_Status,Normalization_Status,Validation_Status,
+Related_Dataset,Storage_Location,Security_Assessor,Reviewer,Collection_Date,Notes
+
+| Section                    | Purpose                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------- |
+| **Collection Metadata**    | Identifies when, where, and how telemetry was collected.                     |
+| **Source Information**     | Records the originating system, platform, hostname, and IP address.          |
+| **Identity Context**       | Associates telemetry with users, service accounts, or privileged identities. |
+| **Security Event Details** | Normalizes Event IDs, log sources, categories, and telemetry types.          |
+| **Detection Context**      | Links telemetry to SIEM rules and Purple Team validation exercises.          |
+| **MITRE ATT&CK Mapping**   | Maps events to adversary tactics and techniques.                             |
+| **Evidence & Integrity**   | Maintains traceability, normalization status, and chain of custody.          |
+| **Governance**             | Records assessor, reviewer, storage location, and collection metadata.       |
+
+Telemetry Dataset Events
+- Windows Security Event 4624 (Successful Logon)
+- Windows Security Event 4625 (Failed Logon)
+- Windows Security Event 4672 (Special Privileges Assigned)
+- Sysmon Event ID 1 (Process Creation)
+- Sysmon Event ID 3 (Network Connection)
+- Sysmon Event ID 7 (Image Load)
+- PowerShell Operational Logs
+- Kerberos Authentication Events
+- NTLM Authentication Events
+- LDAP Bind Events
+- SMB Access Events
+- DNS Queries
+- Suricata Alerts
+- pfSense Firewall Logs
+- Splunk Correlation Searches
+
+This structure aligns well with enterprise SOC, Purple Team, and Detection Engineering workflows while maintaining the normalized, evidence-driven design I've 
+established across the rest of Domain 5.

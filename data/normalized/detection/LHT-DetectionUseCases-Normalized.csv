@@ -1,0 +1,47 @@
+Detection_ID,Detection_Name,Detection_Category,MITRE_Tactic,MITRE_Technique,MITRE_ID,Severity,Priority,Log_Source,Telemetry_Source,Platform,Detection_Type,
+Detection_Logic,Data_Requirements,Validation_Status,Coverage_Status,False_Positive_Risk,False_Negative_Risk,Rule_Status,Related_Sigma,Related_Splunk_Search,Owner,
+Review_Frequency,Evidence_ID,Notes
+
+DET-001,Suspicious PowerShell Execution,Execution,Execution,PowerShell,T1059.001,High,P1,Windows PowerShell,Sysmon Event ID 1; PowerShell Operational Log,Windows,SIEM,
+"Detect encoded or hidden PowerShell execution",PowerShell Logging; Sysmon,Validated,Covered,Medium,Low,Approved,SIG-001,SPL-001,Detection Engineering Team,Quarterly,
+EVD-DET-001,Validated during Purple Team simulation
+
+DET-002,Multiple Failed Logons,Credential Access,Credential Access,Brute Force,T1110,Medium,P2,Windows Security Log,Event ID 4625,Windows,SIEM,"Detect excessive failed 
+logons from same account or source",Security Event Logs,Validated,Covered,Low,Low,Approved,SIG-002,SPL-002,Detection Engineering Team,Monthly,EVD-DET-002,Supports 
+password spraying detection
+
+DET-003,Kerberoasting Activity,Credential Access,Credential Access,Kerberoasting,T1558.003,Critical,P1,Windows Security Log,Event ID 4769,Active Directory,SIEM,"Detect 
+abnormal Kerberos TGS requests",Kerberos Audit Logs,Validated,Covered,Low,Medium,Approved,SIG-003,SPL-003,Detection Engineering Team,Quarterly,EVD-DET-003,Supports AD 
+security monitoring
+
+DET-004,Privileged Group Membership Changes,Privilege Escalation,Privilege Escalation,Account Manipulation,T1098,High,P1,Windows Security Log,Event ID 4728;4729,Active 
+Directory,SIEM,"Detect additions or removals from privileged groups",Security Event Logs,Validated,Covered,Low,Low,Approved,SIG-004,SPL-004,Detection Engineering Team,
+Monthly,EVD-DET-004,Tier Zero monitoring
+
+DET-005,New Local Administrator Account,Persistence,Persistence,Create Account,T1136,High,P1,Windows Security Log,Event ID 4720;4732,Windows,SIEM,"Detect creation of 
+new administrative accounts",Security Event Logs,Validated,Covered,Medium,Low,Approved,SIG-005,SPL-005,Detection Engineering Team,Monthly,EVD-DET-005,Privilege 
+persistence monitoring
+
+DET-006,Remote Service Creation,Lateral Movement,Lateral Movement,Remote Services,T1021,Critical,P1,Windows System Log,Event ID 7045,Windows,SIEM,"Detect remote service 
+installation",System Event Logs,Validated,Covered,Low,Medium,Approved,SIG-006,SPL-006,Detection Engineering Team,Quarterly,EVD-DET-006,Common PsExec indicator
+
+DET-007,Sysmon Process Injection,Defense Evasion,Defense Evasion,Process Injection,T1055,High,P1,Sysmon,Event ID 8,Windows,EDR,"Detect process injection behavior",
+Sysmon Configuration,Validated,Covered,Medium,Medium,Approved,SIG-007,SPL-007,Detection Engineering Team,Quarterly,EVD-DET-007,Endpoint detection use case
+
+DET-008,DNS Beaconing Detection,Command and Control,Command and Control,Application Layer Protocol,T1071,High,P2,DNS Logs,DNS Queries,DNS Infrastructure,SIEM,"Detect 
+repetitive beaconing patterns",DNS Logs,Testing,Partial,Medium,Medium,Draft,SIG-008,SPL-008,Detection Engineering Team,Quarterly,EVD-DET-008,Requires additional tuning
+
+DET-009,Suricata Malware Alert,Execution,Execution,Malicious File,T1204,High,P2,Suricata,EVE JSON,Network,IDS,"Correlate malware alerts from IDS",Suricata Logs,
+Validated,Covered,Low,Low,Approved,SIG-009,SPL-009,Detection Engineering Team,Quarterly,EVD-DET-009,Network-based detection
+
+DET-010,NTLM Authentication Usage,Credential Access,Credential Access,Valid Accounts,T1078,Medium,P2,Windows Security Log,Event ID 4624 NTLM,Active Directory,SIEM,
+"Identify NTLM authentication usage",Security Logs,Validated,Covered,Low,Medium,Approved,SIG-010,SPL-010,Detection Engineering Team,Monthly,EVD-DET-010,Supports NTLM 
+reduction initiatives
+
+DET-011,DCSync Attempt,Credential Access,Credential Access,OS Credential Dumping,T1003.006,Critical,P1,Windows Security Log,Directory Replication Events,Domain 
+Controller,SIEM,"Detect unauthorized directory replication requests",AD Audit Logs,Testing,Partial,Low,Medium,Draft,SIG-011,SPL-011,Detection Engineering Team,Quarterly,
+EVD-DET-011,High-value Active Directory detection
+
+DET-012,Suspicious GPO Modification,Privilege Escalation,Privilege Escalation,Modify Authentication Process,T1556,High,P1,Windows Security Log,Event ID 5136,Active 
+Directory,SIEM,"Detect unauthorized Group Policy modifications",Directory Service Logs,Validated,Covered,Low,Low,Approved,SIG-012,SPL-012,Detection Engineering Team,
+Quarterly,EVD-DET-012,Protects enterprise policy integrity

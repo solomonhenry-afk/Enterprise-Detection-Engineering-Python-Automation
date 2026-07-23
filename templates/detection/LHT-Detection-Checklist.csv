@@ -1,0 +1,116 @@
+Checklist_ID,Phase,Category,Control_ID,Validation_Item,Description,Required_Evidence,Owner,Status,Review_Frequency,Notes
+
+CHK-DET-001,Phase-G,Detection Engineering,DET-CTRL-001,Detection Requirement Defined,Confirm detection objective and business security requirement are documented,
+LHT-Detection-UseCase-Template.md,Detection Engineering Team,Completed,Quarterly,Detection must map to a defined security objective
+
+CHK-DET-002,Phase-G,Detection Engineering,DET-CTRL-002,Threat Scenario Documented,Validate adversary behavior and attack scenario are defined,
+LHT-Detection-UseCase-Template.md,Threat Detection Team,Completed,Quarterly,Threat scenario should align with real-world attacks
+
+CHK-DET-003,Phase-G,MITRE ATT&CK Mapping,ATTACK-CTRL-001,Technique Mapping Completed,Verify detection maps to MITRE ATT&CK technique and tactic,
+LHT-ATTACKCoverage-Normalized.csv,Detection Engineering Team,Completed,Quarterly,Maintain ATT&CK coverage visibility
+
+CHK-DET-004,Phase-G,Telemetry Validation,TEL-CTRL-001,Telemetry Source Identified,Confirm required telemetry sources are documented,LHT-Telemetry-Normalized.csv,
+Security Engineering Team,Completed,Quarterly,Validate log availability and quality
+
+CHK-DET-005,Phase-G,Rule Development,RULE-CTRL-001,Detection Logic Defined,Validate detection conditions and logic are documented,LHT-DetectionRules-Normalized.csv,
+Detection Engineering Team,Completed,Quarterly,Logic must be testable and repeatable
+
+CHK-DET-006,Phase-G,Sigma Development,SIG-CTRL-001,Sigma Rule Created,Confirm Sigma rule exists and follows development standards,LHT-Sigma-Rule-Template.yml,
+Detection Engineering Team,Completed,Quarterly,Maintain platform-independent detection capability
+
+CHK-DET-007,Phase-G,SIEM Engineering,SIEM-CTRL-001,Splunk Search Implemented,Confirm SIEM query exists and produces expected results,LHT-Splunk-Search-Template.spl,
+Splunk Engineering Team,Completed,Quarterly,Validate production search performance
+
+CHK-DET-008,Phase-G,Detection Testing,TEST-CTRL-001,Detection Validation Performed,Execute controlled simulation to validate detection behavior,
+LHT-PurpleTeam-Assessment-Template.md,Purple Team Team,Completed,Per Validation Cycle,Simulation evidence required
+
+CHK-DET-009,Phase-G,Alert Validation,ALERT-CTRL-001,Alert Generated Successfully,Confirm detection creates actionable alert,LHT-AlertValidation-Normalized.csv,
+SOC Operations Team,Completed,Monthly,Validate analyst visibility
+
+CHK-DET-010,Phase-G,Alert Quality,QUALITY-CTRL-001,Alert Context Reviewed,Confirm alert contains sufficient investigation context,LHT-Detection-Assessment-Template.md,
+SOC Analyst Team,Completed,Monthly,Improve analyst response efficiency
+
+CHK-DET-011,Phase-G,False Positive Management,FP-CTRL-001,False Positives Reviewed,Analyze false positive sources and tuning opportunities,LHT-FalsePositive
+-Normalized.csv,Detection Engineering Team,Completed,Quarterly,Maintain detection accuracy
+
+CHK-DET-012,Phase-G,Tuning Management,TUNE-CTRL-001,Detection Tuning Completed,Validate tuning activities improve quality without reducing coverage,LHT-Detection-Tuning
+-Template.md,Detection Engineering Team,Completed,Quarterly,Tuning decisions must be documented
+
+CHK-DET-013,Phase-G,Coverage Measurement,COV-CTRL-001,Detection Coverage Assessed,Measure ATT&CK and security control coverage,LHT-Coverage-Assessment-Template.md,
+Security Architecture Team,Completed,Quarterly,Identify detection gaps
+
+CHK-DET-014,Phase-G,Metrics Management,MET-CTRL-001,Detection Metrics Collected,Validate performance metrics are tracked,LHT-DetectionMetrics-Normalized.csv,Detection 
+Engineering Team,Completed,Monthly,Track detection maturity
+
+CHK-DET-015,Phase-G,Evidence Management,EVD-CTRL-001,Evidence Register Maintained,Confirm detection evidence is recorded and traceable,LHT-Detection-Evidence
+-Register.csv,Security Governance Team,Completed,Quarterly,Maintain audit readiness
+
+CHK-DET-016,Phase-G,Lifecycle Management,LIFE-CTRL-001,Detection Lifecycle Updated,Confirm detection lifecycle stage is maintained,Detection-Lifecycle.md,Detection 
+Engineering Team,Completed,Quarterly,Track development through retirement
+
+CHK-DET-017,Phase-G,Review Governance,GOV-CTRL-001,Peer Review Completed,Validate detection receives technical review,Detection Review Record,Security Governance Team,
+Completed,Quarterly,Ensure quality assurance
+
+CHK-DET-018,Phase-G,Production Readiness,PROD-CTRL-001,Production Approval Completed,Confirm detection is approved for operational deployment,Approval Record,Security 
+Leadership,Completed,Before Deployment,Required before SOC usage
+
+CHK-DET-019,Phase-G,Continuous Improvement,CI-CTRL-001,Improvement Actions Recorded,Document future enhancements and gaps,Detection Improvement Register,Detection 
+Engineering Team,Completed,Quarterly,Support maturity progression
+
+CHK-DET-020,Phase-G,Reporting,REP-CTRL-001,Executive Reporting Data Available,Confirm detection data feeds security reporting,Phase-I Reporting Artifacts,Security 
+Reporting Team,Completed,Quarterly,Support enterprise risk reporting
+
+
+### Phase G Detection Checklist Position
+
+This checklist becomes the **quality gate** before a detection moves through the lifecycle:
+
+```text
+Detection Concept
+        |
+        ↓
+Use Case Definition
+        |
+        ↓
+MITRE Mapping
+        |
+        ↓
+Telemetry Validation
+        |
+        ↓
+Sigma Rule Development
+        |
+        ↓
+SIEM Implementation
+        |
+        ↓
+Purple-Team Validation
+        |
+        ↓
+Alert Validation
+        |
+        ↓
+False Positive Tuning
+        |
+        ↓
+Coverage Measurement
+        |
+        ↓
+Production Approval
+        |
+        ↓
+Continuous Improvement
+```
+
+This artifact support:
+
+```text
+data/normalized/detection/
+├── LHT-DetectionMetadata.csv
+├── LHT-DetectionRules-Normalized.csv
+├── LHT-DetectionCoverage-Normalized.csv
+├── LHT-AlertValidation-Normalized.csv
+└── LHT-DetectionMetrics-Normalized.csv
+```
+
+It establishes Phase G as a **governed enterprise detection engineering pipeline**, not simply a collection of SIEM rules.

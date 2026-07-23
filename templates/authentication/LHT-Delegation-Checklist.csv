@@ -1,0 +1,59 @@
+Checklist_ID,Assessment_Area,Control_Category,Assessment_Check,Evidence_Required,Source_System,Validation_Method,Evidence_State,Validation_Status,Risk_Impact,
+Related_Dataset,Related_Finding_ID,Remediation_Reference,Notes
+
+LHT-DEL-001,Delegation Security,Inventory Baseline,Establish delegation configuration inventory,Delegation attribute and relationship data,Active Directory,
+Directory analysis and normalization,Proposed,Pending,Unknown delegation relationships may create hidden authentication exposure,LHT-Delegation-Normalized.csv,None,
+LHT-Remediation-DEL-001,Initial delegation baseline
+
+LHT-DEL-002,Delegation Security,Unconstrained Delegation,Identify systems configured for unconstrained delegation,Computer and account delegation attributes,
+Active Directory,Configuration review,Proposed,Pending,Unrestricted authentication delegation may create high privilege exposure,LHT-Delegation-Normalized.csv,None,
+LHT-Remediation-DEL-002,Prioritize Tier Zero review
+
+LHT-DEL-003,Delegation Security,Constrained Delegation,Review constrained delegation configurations,Service delegation settings and SPN mappings,Active Directory,
+Delegation attribute analysis,Proposed,Pending,Incorrect delegation scope may expose authentication paths,LHT-Delegation-Normalized.csv,None,LHT-Remediation-DEL-003,
+Validate business requirement
+
+LHT-DEL-004,Delegation Security,Resource-Based Constrained Delegation,Assess resource-based delegation permissions,Resource-based delegation configuration evidence,
+Active Directory,Access control review,Proposed,Pending,Improper permissions may allow unauthorized authentication relationships,LHT-Delegation-Normalized.csv,None,
+LHT-Remediation-DEL-004,Review object permissions
+
+LHT-DEL-005,Delegation Security,Service Account Exposure,Identify delegated service accounts,Service account and delegation relationship mapping,Active Directory,
+Identity correlation analysis,Proposed,Pending,Privileged service identities may increase attack surface,LHT-ServiceAccount-Normalized.csv,None,LHT-Remediation-SA-010,
+Service account integration
+
+LHT-DEL-006,Delegation Security,Privilege Exposure,Assess delegation involving privileged groups or identities,Tier Zero identity relationship evidence,Active Directory,
+Tier classification analysis,Proposed,Pending,Delegation involving privileged identities increases enterprise impact,LHT-TierZero-Inventory.csv,None,
+LHT-Remediation-T0-003,Tier Zero protection
+
+LHT-DEL-007,Delegation Security,Attack Path Analysis,Identify delegation-related privilege paths,Authorized graph analysis output,BloodHound Community Edition/Equivalent
+Attack path review,Proposed,Pending,Hidden identity paths may enable privilege escalation,LHT-Delegation-Normalized.csv,None,LHT-Remediation-ACL-001,Lab validation only
+
+LHT-DEL-008,Delegation Security,Kerberos Integration,Validate delegation relationship with Kerberos authentication,Kerberos delegation evidence,Active Directory,
+Kerberos configuration review,Proposed,Pending,Delegation weaknesses may impact Kerberos security,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-KRB-006,Kerberos 
+integration
+
+LHT-DEL-009,Delegation Security,Access Control Review,Review permissions controlling delegation settings,ACL and permission evidence,Active Directory,Authorization 
+analysis,Proposed,Pending,Excessive permissions may enable unauthorized delegation changes,LHT-Delegation-Normalized.csv,None,LHT-Remediation-ACL-002,Privilege 
+exposure integration
+
+LHT-DEL-010,Delegation Security,Administrative Exposure,Assess administrative accounts interacting with delegated systems,Administrative session and privilege evidence,
+Active Directory/Security Logs,Identity exposure analysis,Proposed,Pending,Administrative exposure may increase lateral movement risk,None,None,LHT-Remediation-ADMIN-001
+Domain 2 integration
+
+LHT-DEL-011,Delegation Security,Detection Monitoring,Validate visibility into delegation-related authentication activity,Windows authentication events and monitoring 
+data,Windows Event Logs/Splunk,Telemetry validation,Proposed,Pending,Lack of visibility reduces detection effectiveness,None,None,LHT-Remediation-DET-008,
+Domain 1 detection integration
+
+LHT-DEL-012,Delegation Security,Purple Team Validation,Validate detection coverage against authorized delegation scenarios,Detection rules and controlled validation 
+results,Splunk/Sigma,Controlled lab validation,Proposed,Pending,Detection gaps increase identity threat response time,None,None,LHT-Remediation-DET-009,
+Domain 2 Purple Team integration
+
+LHT-DEL-013,Delegation Security,Risk Assessment,Assign delegation exposure risk rating,Assessment findings and evidence mapping,Risk Register,Risk scoring methodology,
+Proposed,Pending,Unprioritized delegation risks delay remediation,LHT-Delegation-Normalized.csv,None,LHT-Remediation-RISK-002,Domain 4 integration
+
+LHT-DEL-014,Delegation Security,Remediation Planning,Document delegation hardening recommendations,Remediation evidence and action plan,Security Documentation,
+Review process,Proposed,Pending,Improper remediation may leave residual exposure,None,None,LHT-Remediation-DEL-005,Executive roadmap input
+
+LHT-DEL-015,Delegation Security,Remediation Validation,Confirm delegation security improvements after remediation,Before and after delegation configuration evidence,
+Active Directory,Retest comparison,Proposed,Pending,Validates reduction of authentication trust exposure,LHT-Delegation-Normalized.csv,None,LHT-Remediation-VAL-005,
+Final validation checkpoint

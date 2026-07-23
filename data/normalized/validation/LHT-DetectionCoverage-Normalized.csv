@@ -1,0 +1,93 @@
+# ================================================================================
+# Lighthouse Technology - Enterprise Security Evolution
+# Domain 5 - Enterprise Active Directory Penetration Testing & Security Auditing
+# Phase F - Safe Purple Team Validation
+# Dataset: LHT-DetectionCoverage-Normalized.csv
+#
+# PURPOSE
+# -------
+# This normalized dataset measures the effectiveness and completeness of detection
+# coverage across Purple Team validation exercises. It documents which adversary
+# behaviors, ATT&CK techniques, security controls, and telemetry sources are
+# successfully detected, partially detected, or remain undetected.
+#
+# The dataset provides quantitative evidence supporting detection engineering,
+# security monitoring maturity, coverage-gap analysis, and executive reporting.
+#
+# RELATIONSHIPS
+# -------------
+# Parent Dataset
+#   • LHT-PurpleTeam-Normalized.csv
+#
+# Related Datasets
+#   • LHT-DetectionValidation-Normalized.csv
+#   • LHT-Telemetry-Normalized.csv
+#   • LHT-AttackSimulation-Normalized.csv
+#   • LHT-Validation-Metadata.csv
+#
+# Primary Key
+#   • Coverage_Record_ID
+#
+# Foreign Key
+#   • Validation_ID
+#
+# DATA QUALITY REQUIREMENTS
+# -------------------------
+# • One coverage assessment per detection scenario.
+# • Validation_ID must reference an approved Purple Team exercise.
+# • ATT&CK mappings shall use official Technique IDs.
+# • Coverage ratings shall be evidence-based.
+# • Detection gaps must include remediation recommendations.
+# • Coverage calculations should be reproducible.
+# ================================================================================
+
+Coverage_Record_ID,Validation_ID,Assessment_ID,Coverage_Category,Coverage_Objective,Security_Control,Security_Tool,Detection_Rule_ID,Detection_Name,Telemetry_Source,
+Log_Source,MITRE_Tactic,MITRE_Technique_ID,Attack_Technique,Threat_Scenario,Detection_Coverage_Status,Coverage_Percentage,Visibility_Level,Detection_Confidence,
+Alert_Generated,Investigation_Ready,Telemetry_Completeness,Correlation_Status,Coverage_Gap,Gap_Description,Risk_Level,Business_Impact,Recommended_Improvement,
+Remediation_Status,Evidence_ID,Related_Dataset,Assessment_Template,Security_Assessor,Reviewer,Approval_Status,Assessment_Date,Notes
+
+| Section                    | Purpose                                                               |
+| -------------------------- | --------------------------------------------------------------------- |
+| **Coverage Metadata**      | Identifies what security capability is being evaluated.               |
+| **Detection Mapping**      | Links coverage to specific SIEM rules and detections.                 |
+| **Telemetry Visibility**   | Confirms whether sufficient logs exist to support detection.          |
+| **MITRE ATT&CK Alignment** | Measures coverage against adversary tactics and techniques.           |
+| **Coverage Metrics**       | Quantifies visibility, confidence, and detection effectiveness.       |
+| **Gap Analysis**           | Documents missing detections and operational blind spots.             |
+| **Risk & Remediation**     | Connects coverage gaps to business risk and corrective actions.       |
+| **Governance**             | Maintains evidence lineage, assessor, reviewer, and approval records. |
+
+
+This dataset answers questions such as
+Which ATT&CK techniques are fully covered?
+Which attack techniques generate telemetry but no alerts?
+Which detections have low confidence?
+Where are the visibility gaps?
+Which telemetry sources need improvement?
+Which controls require tuning?
+Which remediation actions should be prioritized?
+How mature is the organization's detection capability?
+
+
+Purple Team Exercise
+        │
+        ▼
+Attack Simulation
+        │
+        ▼
+Telemetry Generated
+        │
+        ▼
+Detection Validation
+        │
+        ▼
+Detection Coverage Analysis
+        │
+        ▼
+Coverage Gap Identification
+        │
+        ▼
+Detection Engineering Improvements
+        │
+        ▼
+Executive Reporting

@@ -1,0 +1,249 @@
+/*
+===============================================================================
+ Lighthouse Technology (LHT)
+ Detection Engineering Splunk Search Template
+
+ Detection ID      : DET-001
+ Rule ID           : RULE-001
+ Sigma ID          : SIG-001
+ Use Case ID       : LHT-DET-UC-001
+
+ Detection Name    : Suspicious PowerShell Execution Detection
+
+ Version           : 1.0
+ Created Date      : 2026-07-22
+ Owner             : Lighthouse Technology Detection Engineering Team
+ Reviewer          : Enterprise Security Governance Team
+ Status            : Approved
+
+ MITRE ATT&CK Mapping:
+   Tactic          : Execution
+   Technique       : T1059.001 - PowerShell
+
+ Purpose:
+   Detect suspicious PowerShell execution activity associated with adversary
+   execution techniques, post-exploitation activity, and malicious scripting.
+
+ Required Telemetry:
+   - Sysmon Event ID 1 Process Creation
+   - PowerShell Operational Logs
+   - Windows Security Logs
+   - EDR Endpoint Telemetry
+
+===============================================================================
+*/
+
+
+/*
+------------------------------------------------------------------------------
+ Detection Logic
+------------------------------------------------------------------------------
+*/
+
+index=windows OR index=sysmon
+
+source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+
+EventCode=1
+
+(
+    Image="*\\powershell.exe"
+    OR
+    Image="*\\pwsh.exe"
+)
+
+(
+    CommandLine="*-EncodedCommand*"
+    OR
+    CommandLine="*-ExecutionPolicy Bypass*"
+    OR
+    CommandLine="*-WindowStyle Hidden*"
+    OR
+    CommandLine="*-NoProfile*"
+    OR
+    CommandLine="*Invoke-Expression*"
+    OR
+    CommandLine="*DownloadString*"
+    OR
+    CommandLine="*Net.WebClient*"
+)
+
+| eval detection_id="DET-001"
+
+| eval rule_id="RULE-001"
+
+| eval sigma_id="SIG-001"
+
+| eval detection_name="Suspicious PowerShell Execution Detection"
+
+| eval mitre_attack="T1059.001"
+
+| eval severity="High"
+
+
+/*
+------------------------------------------------------------------------------
+ Parent Process Correlation
+------------------------------------------------------------------------------
+*/
+
+| eval suspicious_parent=case(
+
+    ParentImage LIKE "%\\winword.exe%",
+    "Office Spawned PowerShell",
+
+    ParentImage LIKE "%\\excel.exe%",
+    "Excel Spawned PowerShell",
+
+    ParentImage LIKE "%\\outlook.exe%",
+    "Outlook Spawned PowerShell",
+
+    ParentImage LIKE "%\\mshta.exe%",
+    "MSHTA Spawned PowerShell",
+
+    true(),
+    "Normal Parent Process"
+
+)
+
+
+/*
+------------------------------------------------------------------------------
+ Risk Scoring
+------------------------------------------------------------------------------
+*/
+
+| eval risk_score=0
+
+
+| eval risk_score=
+    risk_score +
+    if(match(CommandLine,"EncodedCommand"),30,0)
+
+
+| eval risk_score=
+    risk_score +
+    if(match(CommandLine,"ExecutionPolicy Bypass"),25,0)
+
+
+| eval risk_score=
+    risk_score +
+    if(match(CommandLine,"Hidden"),20,0)
+
+
+| eval risk_score=
+    risk_score +
+    if(suspicious_parent!="Normal Parent Process",25,0)
+
+
+
+/*
+------------------------------------------------------------------------------
+ Alert Output
+------------------------------------------------------------------------------
+*/
+
+
+| table
+
+_time,
+
+Computer,
+
+User,
+
+Image,
+
+ParentImage,
+
+CommandLine,
+
+ProcessId,
+
+ParentProcessId,
+
+Hashes,
+
+detection_id,
+
+rule_id,
+
+sigma_id,
+
+detection_name,
+
+mitre_attack,
+
+suspicious_parent,
+
+risk_score,
+
+severity
+
+
+
+/*
+===============================================================================
+ Investigation Guidance
+
+ Analyst Actions:
+
+ 1. Validate user legitimacy.
+ 2. Review PowerShell command content.
+ 3. Identify parent process origin.
+ 4. Review endpoint telemetry.
+ 5. Correlate authentication activity.
+ 6. Determine malicious or approved activity.
+
+
+ Expected Detection Outcome:
+
+ PASS:
+   - Alert generated
+   - Required telemetry captured
+   - Investigation context available
+
+
+ Evidence Collection:
+
+ Evidence ID:
+   EVD-DET-001
+
+ Required Evidence:
+   - Splunk alert screenshot
+   - Raw event logs
+   - Host information
+   - User context
+
+
+===============================================================================
+*/
+
+
+/*
+------------------------------------------------------------------------------
+ Detection Performance Tracking
+------------------------------------------------------------------------------
+*/
+
+| appendpipe [
+
+    stats count as alerts_generated
+
+    | eval detection_metric="Alert Volume"
+
+]
+
+
+/*
+------------------------------------------------------------------------------
+ Change History
+------------------------------------------------------------------------------
+*/
+
+Version 1.0
+Date    : 2026-07-22
+Author  : Lighthouse Technology Security Engineering Team
+
+Change:
+Initial enterprise Splunk detection search template creation.

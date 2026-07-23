@@ -1,0 +1,46 @@
+Checklist_ID,Assessment_Area,Control_Category,Assessment_Check,Evidence_Required,Source_System,Validation_Method,Evidence_State,Validation_Status,Risk_Impact,
+Related_Dataset,Related_Finding_ID,Remediation_Reference,Notes
+
+LHT-NTLM-001,NTLM Security,Configuration Review,Establish NTLM authentication configuration baseline,NTLM policy configuration evidence,Active Directory/GPO,GPO and 
+security policy review,Proposed,Pending,Determines current legacy authentication exposure,LHT-NTLM-Normalized.csv,None,LHT-Remediation-NTLM-001,Initial NTLM assessment 
+baseline
+
+LHT-NTLM-002,NTLM Security,Authentication Policy,Review domain-level NTLM restriction settings,Domain authentication policy evidence,Active Directory,Security policy 
+validation,Proposed,Pending,Weak NTLM restrictions may increase credential exposure risk,LHT-NTLM-Normalized.csv,None,LHT-Remediation-NTLM-002,Document approved 
+exceptions
+
+LHT-NTLM-003,NTLM Security,Legacy Authentication,Identify systems and applications requiring NTLM,Authentication dependency inventory,Active Directory/Application 
+Inventory,Dependency analysis,Proposed,Pending,Unknown dependencies prevent secure authentication modernization,LHT-NTLM-Normalized.csv,None,LHT-Remediation-NTLM-003,
+Validate business requirements
+
+LHT-NTLM-004,NTLM Security,SMB Authentication,Review NTLM usage through SMB authentication,SMB authentication evidence,Windows Systems/Event Logs,Authentication log 
+review,Proposed,Pending,SMB-based NTLM exposure may increase lateral movement risk,LHT-NTLM-Normalized.csv,None,LHT-Remediation-SMB-001,Integrates with Domain 3 SMB 
+assessment
+
+LHT-NTLM-005,NTLM Security,LDAP Authentication,Assess NTLM usage through LDAP authentication,LDAP authentication configuration evidence,Active Directory,Directory 
+service review,Proposed,Pending,Legacy directory authentication may weaken identity security,LHT-NTLM-Normalized.csv,None,LHT-Remediation-LDAP-001,Review secure LDAP 
+adoption
+
+LHT-NTLM-006,NTLM Security,Remote Administration,Review NTLM dependency for remote management protocols,Remote authentication evidence,Windows Systems,Configuration 
+and event analysis,Proposed,Pending,Remote authentication exposure may increase administrative risk,LHT-NTLM-Normalized.csv,None,LHT-Remediation-WINRM-001,Review WinRM 
+security controls
+
+LHT-NTLM-007,NTLM Security,Credential Exposure,Assess privileged account NTLM authentication usage,Privileged authentication records,Windows Event Logs/Splunk,
+Authentication activity analysis,Proposed,Pending,Privileged NTLM usage increases credential compromise impact,LHT-NTLM-Normalized.csv,None,LHT-Remediation-PRIV-001,
+Tier Zero integration
+
+LHT-NTLM-008,NTLM Security,Authentication Monitoring,Validate NTLM authentication telemetry collection,Windows authentication events and log sources,Windows Event Logs/
+Splunk,Log source validation,Proposed,Pending,Insufficient telemetry reduces detection capability,None,None,LHT-Remediation-DET-003,Domain 1 detection integration
+
+LHT-NTLM-009,NTLM Security,Detection Engineering,Validate detection coverage for suspicious NTLM activity,Sigma rules and Splunk searches,Splunk/Sigma,Controlled 
+detection validation,Proposed,Pending,Detection gaps increase response difficulty,None,None,LHT-Remediation-DET-004,Purple Team validation support
+
+LHT-NTLM-010,NTLM Security,Risk Assessment,Document NTLM business justification and residual risk,Approved exception documentation,Governance Records,Control review,
+Proposed,Pending,Unmanaged legacy authentication creates ongoing risk,LHT-NTLM-Normalized.csv,None,LHT-Remediation-GOV-001,Domain 4 governance integration
+
+LHT-NTLM-011,NTLM Security,Migration Planning,Identify opportunities to reduce NTLM dependency,Modern authentication improvement plan,Architecture Documentation,
+Security architecture review,Proposed,Pending,Reducing NTLM improves identity resilience,LHT-NTLM-Normalized.csv,None,LHT-Remediation-NTLM-004,Track modernization 
+roadmap
+
+LHT-NTLM-012,NTLM Security,Remediation Validation,Confirm NTLM security improvements after remediation,Before and after authentication evidence,Active Directory/Splunk,
+Retest comparison,Proposed,Pending,Validates measurable security improvement,LHT-NTLM-Normalized.csv,None,LHT-Remediation-VAL-002,Final validation checkpoint

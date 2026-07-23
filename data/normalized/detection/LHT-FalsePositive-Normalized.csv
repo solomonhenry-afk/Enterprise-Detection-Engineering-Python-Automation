@@ -1,0 +1,50 @@
+FP_Record_ID,Detection_ID,Rule_ID,Sigma_ID,Splunk_Search_ID,Alert_ID,MITRE_Tactic,MITRE_Technique,MITRE_ID,Detection_Name,Alert_Source,False_Positive_Scenario,
+Root_Cause,Impact,Tuning_Action,Recommended_Filter,Validation_Status,Residual_Risk,Evidence_ID,Owner,Review_Date,Status,Notes
+
+FP-001,DET-001,RULE-001,SIG-001,SPL-001,ALT-001,Execution,PowerShell,T1059.001,Suspicious PowerShell Execution,Sysmon Event ID 1,Approved PowerShell administration 
+scripts,Legitimate administrator activity,Medium,Whitelist approved scripts and signed binaries,Filter trusted admin accounts and code signatures,Validated,Low,
+EVD-FP-001,Detection Engineering Team,2026-07-22,Closed,Reduced administrative noise while maintaining visibility
+
+FP-002,DET-002,RULE-002,SIG-002,SPL-002,ALT-002,Credential Access,Brute Force,T1110,Multiple Failed Logons,Windows Security Event ID 4625,Users repeatedly entering 
+incorrect passwords,Normal user behavior,Low,Adjust threshold by user baseline,Exclude approved authentication testing accounts,Validated,Low,EVD-FP-002,Detection 
+Engineering Team,2026-07-22,Closed,Balanced sensitivity and usability
+
+FP-003,DET-003,RULE-003,SIG-003,SPL-003,ALT-003,Credential Access,Kerberoasting,T1558.003,Kerberoasting Detection,Kerberos Event ID 4769,Backup or monitoring 
+applications requesting service tickets,Expected service behavior,Medium,Baseline known service accounts,Exclude approved service accounts from alerts,Validated,Low,
+EVD-FP-003,Detection Engineering Team,2026-07-22,Closed,Reduced recurring service-account alerts
+
+FP-004,DET-004,RULE-004,SIG-004,SPL-004,ALT-004,Privilege Escalation,Account Manipulation,T1098,Privileged Group Membership Changes,Windows Security Events,Scheduled 
+identity administration,Approved maintenance activity,Medium,Correlate with approved change windows,Suppress alerts during approved maintenance,Validated,Low,
+EVD-FP-004,Detection Engineering Team,2026-07-22,Closed,Integrated change-management validation
+
+FP-005,DET-005,RULE-005,SIG-005,SPL-005,ALT-005,Persistence,Create Account,T1136,Administrator Account Creation,Windows Security Events,Automated HR onboarding process,
+Expected provisioning workflow,Medium,Validate against identity management workflow,Exclude approved provisioning service accounts,Validated,Low,EVD-FP-005,Detection 
+Engineering Team,2026-07-22,Closed,Identity governance integration
+
+FP-006,DET-006,RULE-006,SIG-006,SPL-006,ALT-006,Lateral Movement,Remote Services,T1021,Remote Service Installation,System Event ID 7045,Software deployment platform 
+installing services,Enterprise software deployment,Medium,Correlate with SCCM or deployment schedules,Whitelist approved deployment servers,Validated,Low,EVD-FP-006,
+Detection Engineering Team,2026-07-22,Closed,Maintained PsExec visibility
+
+FP-007,DET-007,RULE-007,SIG-007,SPL-007,ALT-007,Defense Evasion,Process Injection,T1055,Process Injection Detection,Sysmon Event ID 8,Endpoint security software 
+performing memory inspection,Expected security software behavior,High,Whitelist trusted security products,Exclude verified EDR processes,Validated,Medium,EVD-FP-007,
+Detection Engineering Team,2026-07-22,Closed,Behavioral tuning completed
+
+FP-008,DET-008,RULE-008,SIG-008,SPL-008,ALT-008,Command and Control,Application Layer Protocol,T1071,DNS Beacon Detection,DNS Logs,Content delivery networks and cloud 
+applications,Legitimate repetitive DNS traffic,Medium,Implement behavioral baselining,Exclude trusted CDN domains,Testing,Medium,EVD-FP-008,Detection Engineering Team,
+2026-07-22,Open,Requires additional tuning
+
+FP-009,DET-009,RULE-009,SIG-009,SPL-009,ALT-009,Execution,User Execution,T1204,Suricata Malware Detection,Suricata IDS,Authorized penetration testing activity,Planned 
+Purple Team exercise,Low,Correlate with engagement schedule,Suppress alerts during approved exercises,Validated,Low,EVD-FP-009,Detection Engineering Team,2026-07-22,
+Closed,Exercise documented
+
+FP-010,DET-010,RULE-010,SIG-010,SPL-010,ALT-010,Credential Access,Valid Accounts,T1078,NTLM Authentication Monitoring,Windows Authentication Logs,Legacy business 
+applications,Expected legacy authentication,Medium,Inventory legacy systems,Whitelist approved legacy servers until migration,Validated,Medium,EVD-FP-010,Detection 
+Engineering Team,2026-07-22,Open,Pending NTLM retirement
+
+FP-011,DET-011,RULE-011,SIG-011,SPL-011,ALT-011,Credential Access,OS Credential Dumping,T1003.006,DCSync Detection,Directory Replication Logs,Authorized backup solution 
+performing replication,Expected replication process,Medium,Validate replication source,Whitelist approved replication accounts,Testing,Medium,EVD-FP-011,Detection 
+Engineering Team,2026-07-22,Open,Production validation pending
+
+FP-012,DET-012,RULE-012,SIG-012,SPL-012,ALT-012,Privilege Escalation,Modify Authentication Process,T1556,GPO Modification Detection,Directory Service Logs,Approved 
+Group Policy maintenance,Authorized administrative activity,Low,Correlate with CAB approvals,Suppress alerts during approved maintenance,Validated,Low,EVD-FP-012,
+Detection Engineering Team,2026-07-22,Closed,Change-management integrated

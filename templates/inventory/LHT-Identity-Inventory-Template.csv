@@ -1,0 +1,50 @@
+Identity_ID,Identity_Type,SamAccountName,UserPrincipalName,Display_Name,Object_GUID,Domain,Forest,Organizational_Unit,Account_Status,Enabled,Created_Date,Last_Logon,
+Password_Last_Set,Password_Expiry,Password_Never_Expires,Account_Lockout_Status,Privilege_Level,Administrative_Role,Tier_Level,Group_Membership,Primary_Group,
+Delegation_Status,SPN_Configured,Service_Account,Service_Name,Authentication_Methods,Last_Authentication_Source,Risk_Category,Risk_Score,Collection_Source,
+Collection_Method,Collection_Tool,Collection_Date,Validation_Status,Reviewer,Classification,Notes
+
+Active Directory
+       |
+       |
+       ▼
+Identity Collection
+(PowerShell / LDAP / ADSI)
+       |
+       |
+       ▼
+LHT-Identity-Inventory-Template.csv
+       |
+       |
+       ▼
+Normalization
+       |
+       |
+       ▼
+LHT-Identity-Normalized.csv
+       |
+       |
+       ▼
+Privilege Exposure Analysis
+       |
+       |
+       ▼
+Attack Path Mapping
+
+SamAccountName-----------|                                 Privilege_Level------------|
+UserPrincipalName--------|                                 Password_Expiry------------|
+Display_Name-------------|-----Identity Governance         SPN_Configured-------------|-----Credential & Authentication Security
+Organizational_Unit------|                                 Delegation_Status----------|
+Account_Status-----------|                                 Authentication_Methods-----|
+Enabled------------------|
+
+
+Collection_Source-----|                                    Risk Category-------------|
+Collection_Method-----|                                    Risk Score----------------|------------Attack Surface Analysis
+Collection_Tool-------|                                    Service Account-----------|
+Collection_Date-------|-------------Evidence Governance    Delegation Status---------|
+Validation_Status-----|
+Reviewer--------------|
+Classification--------|
+
+
+This now makes Phase D visually demonstrate a professional identity security assessment workflow rather than just a CSV file.

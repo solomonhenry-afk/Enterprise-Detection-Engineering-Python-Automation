@@ -1,0 +1,64 @@
+Checklist_ID,Checklist_Category,Simulation_Phase,Simulation_Component,Validation_Check,Expected_Result,Evidence_Required,Assessment_Status,Validation_Status,
+Related_Dataset,Related_Document,MITRE_Mapping,Owner,Reviewer,Assessment_Date,Notes
+
+LHT-ATTACK-001,Planning,Preparation,Assessment Authorization,Verify the attack simulation has documented authorization and approved scope,Authorization approved,
+Signed assessment authorization,Pending,Pending,LHT-AttackSimulation-Normalized.csv,Purple-Team-Validation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-ATTACK-002,Planning,Preparation,Safety Controls,Verify validation activities comply with the Validation Safety Standard,Safety controls confirmed,Safety review 
+checklist,Pending,Pending,LHT-AttackSimulation-Normalized.csv,Validation-Safety-Standard.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-003,Planning,Preparation,Target Verification,Verify target hosts systems and accounts are correctly identified,Authorized targets confirmed,Target inventory,
+Pending,Pending,LHT-AttackSimulation-Normalized.csv,Purple-Team-Validation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-004,Planning,Preparation,Technique Selection,Verify ATT&CK techniques selected for validation are documented,Simulation techniques approved,Attack plan 
+documentation,Pending,Pending,LHT-PurpleTeam-Normalized.csv,Purple-Team-Validation-Methodology.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-005,Preparation,Infrastructure,Lab Readiness,Verify all lab infrastructure is operational before execution,Lab environment available,Laboratory verification,
+Pending,Pending,LHT-AttackSimulation-Normalized.csv,Validation-Safety-Standard.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-006,Preparation,Telemetry,Telemetry Readiness,Verify required telemetry sources are operational before execution,Telemetry available,Telemetry verification 
+report,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-007,Execution,Simulation,Attack Execution,Verify the selected ATT&CK technique is executed successfully,Controlled attack executed,Execution logs,Pending,
+Pending,LHT-AttackSimulation-Normalized.csv,Purple-Team-Validation-Methodology.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-008,Execution,Simulation,Behavior Validation,Verify expected attacker behavior is observed during execution,Expected behavior confirmed,Execution evidence,
+Pending,Pending,LHT-PurpleTeam-Normalized.csv,Purple-Team-Validation-Methodology.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-009,Execution,Detection,Alert Validation,Verify security controls generate expected detections during simulation,Expected alerts generated,Splunk alerts,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-010,Execution,Detection,Telemetry Correlation,Verify attack activity is visible across all telemetry sources,Correlated telemetry confirmed,SIEM search 
+results,Pending,Pending,LHT-Telemetry-Normalized.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-011,Quality,Validation,Evidence Collection,Verify screenshots logs queries and artifacts have been collected,Complete evidence package,Evidence repository,
+Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-012,Quality,Validation,Detection Accuracy,Verify detections correctly identify simulated attacker activity,Detection accuracy confirmed,Detection validation 
+report,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-013,Quality,Validation,False Positive Review,Verify no excessive false positives were generated,Acceptable false-positive rate,Detection tuning report,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-014,Quality,Validation,False Negative Review,Verify malicious activity was successfully detected without missed events,Acceptable false-negative rate,
+Validation assessment,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security 
+Team,,
+
+LHT-ATTACK-015,Assessment,Coverage,ATT&CK Coverage Review,Verify executed techniques contribute to ATT&CK coverage objectives,Coverage documented,Coverage assessment 
+report,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-016,Assessment,Reporting,Findings Documentation,Verify findings observations and recommendations are documented,Assessment report completed,Assessment 
+documentation,Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-017,Assessment,Reporting,Evidence Integrity,Verify evidence is complete traceable and maintains chain of custody,Evidence integrity confirmed,Evidence 
+register,Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-018,Closure,Review,Lessons Learned,Verify lessons learned and improvement opportunities are documented,Lessons learned completed,Post-validation review,
+Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-019,Closure,Review,Technical Approval,Verify assessment has been technically reviewed and approved,Technical approval recorded,Assessment approval record,
+Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-ATTACK-020,Closure,Completion,Assessment Closure,Verify all validation activities have been completed and formally closed,Assessment officially closed,Completed 
+assessment package,Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,

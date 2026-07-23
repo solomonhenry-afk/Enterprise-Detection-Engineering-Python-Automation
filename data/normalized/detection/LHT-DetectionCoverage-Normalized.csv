@@ -1,0 +1,45 @@
+Coverage_ID,Detection_ID,Rule_ID,Sigma_ID,Splunk_Search_ID,MITRE_Tactic,MITRE_Technique,MITRE_ID,Threat_Category,Asset_Type,Platform,Telemetry_Source,Coverage_Level,
+Coverage_Status,Validation_Status,Attack_Simulation_ID,Evidence_ID,Detection_Confidence,False_Positive_Risk,False_Negative_Risk,Residual_Risk,Detection_Gap,
+Recommended_Action,Owner,Review_Frequency,Last_Assessed,Notes
+
+COV-001,DET-001,RULE-001,SIG-001,SPL-001,Execution,PowerShell,T1059.001,Execution,Windows Endpoint,Windows,Sysmon; PowerShell Operational Logs,High,Covered,Validated,
+SIM-001,EVD-DET-001,95%,Medium,Low,Low,None,Continue monitoring and periodic tuning,Detection Engineering Team,Quarterly,2026-07-22,Validated during Purple Team exercise
+
+COV-002,DET-002,RULE-002,SIG-002,SPL-002,Credential Access,Brute Force,T1110,Authentication,Active Directory,Windows,Security Event ID 4625,High,Covered,Validated,
+SIM-002,EVD-DET-002,94%,Low,Low,Low,None,Tune thresholds based on environment baseline,Detection Engineering Team,Monthly,2026-07-22,Password spraying detection
+
+COV-003,DET-003,RULE-003,SIG-003,SPL-003,Credential Access,Kerberoasting,T1558.003,Credential Theft,Domain Controller,Active Directory,Kerberos Event ID 4769,High,
+Covered,Validated,SIM-003,EVD-DET-003,96%,Low,Medium,Low,Low-volume attacks,Enhance anomaly-based analytics,Detection Engineering Team,Quarterly,2026-07-22,Enterprise 
+identity monitoring
+
+COV-004,DET-004,RULE-004,SIG-004,SPL-004,Privilege Escalation,Account Manipulation,T1098,Privilege Abuse,Identity Infrastructure,Active Directory,Windows Security 
+Events,High,Covered,Validated,SIM-004,EVD-DET-004,97%,Low,Low,Low,None,Maintain continuous monitoring,Detection Engineering Team,Monthly,2026-07-22,Tier Zero coverage
+
+COV-005,DET-005,RULE-005,SIG-005,SPL-005,Persistence,Create Account,T1136,Persistence,Windows Endpoint,Windows,Security Event IDs 4720/4732,High,Covered,Validated,
+SIM-005,EVD-DET-005,94%,Medium,Low,Low,None,Review privileged account approvals,Detection Engineering Team,Monthly,2026-07-22,Administrative account monitoring
+
+COV-006,DET-006,RULE-006,SIG-006,SPL-006,Lateral Movement,Remote Services,T1021,Lateral Movement,Windows Server,Windows,System Event ID 7045,High,Covered,Validated,
+SIM-006,EVD-DET-006,96%,Low,Medium,Low,Remote execution variants,Expand service creation analytics,Detection Engineering Team,Quarterly,2026-07-22,PsExec detection
+
+COV-007,DET-007,RULE-007,SIG-007,SPL-007,Defense Evasion,Process Injection,T1055,Endpoint Attack,Windows Endpoint,Windows,Sysmon Event ID 8,High,Covered,Validated,
+SIM-007,EVD-DET-007,93%,Medium,Medium,Medium,Kernel-level injection visibility,Integrate EDR telemetry,Detection Engineering Team,Quarterly,2026-07-22,Behavioral 
+detection
+
+COV-008,DET-008,RULE-008,SIG-008,SPL-008,Command and Control,Application Layer Protocol,T1071,C2 Activity,DNS Infrastructure,Network,DNS Query Logs,Medium,Partial,
+Testing,SIM-008,EVD-DET-008,82%,Medium,Medium,Medium,Encrypted DNS traffic,Improve DNS analytics and baselines,Detection Engineering Team,Quarterly,2026-07-22,
+Detection under tuning
+
+COV-009,DET-009,RULE-009,SIG-009,SPL-009,Execution,User Execution,T1204,Malware Execution,Network Perimeter,Network,Suricata EVE JSON,High,Covered,Validated,SIM-009,
+EVD-DET-009,95%,Low,Low,Low,None,Maintain signature updates,Detection Engineering Team,Quarterly,2026-07-22,Network IDS validation
+
+COV-010,DET-010,RULE-010,SIG-010,SPL-010,Credential Access,Valid Accounts,T1078,Identity Monitoring,Active Directory,Windows,Security Event ID 4624,High,Covered,
+Validated,SIM-010,EVD-DET-010,91%,Low,Medium,Low,Legacy authentication,Accelerate NTLM retirement,Detection Engineering Team,Monthly,2026-07-22,Supports identity 
+modernization
+
+COV-011,DET-011,RULE-011,SIG-011,SPL-011,Credential Access,OS Credential Dumping,T1003.006,Domain Compromise,Domain Controller,Active Directory,Directory Replication 
+Events,Medium,Partial,Testing,SIM-011,EVD-DET-011,88%,Low,Medium,Medium,Replication path visibility,Expand DCSync validation scenarios,Detection Engineering Team,
+Quarterly,2026-07-22,Awaiting production validation
+
+COV-012,DET-012,RULE-012,SIG-012,SPL-012,Privilege Escalation,Modify Authentication Process,T1556,Configuration Security,Active Directory,Windows,Directory Service 
+Event ID 5136,High,Covered,Validated,SIM-012,EVD-DET-012,96%,Low,Low,Low,None,Review GPO governance regularly,Detection Engineering Team,Quarterly,2026-07-22,
+Enterprise configuration monitoring

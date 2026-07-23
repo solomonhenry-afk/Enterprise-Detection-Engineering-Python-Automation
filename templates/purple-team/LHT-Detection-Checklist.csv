@@ -1,0 +1,52 @@
+Checklist_ID,Checklist_Category,Detection_Domain,Detection_Component,Validation_Check,Expected_Result,Evidence_Required,Assessment_Status,Validation_Status,
+Related_Dataset,Related_Document,MITRE_Mapping,Owner,Reviewer,Assessment_Date,Notes
+
+LHT-DET-001,Planning,Detection Engineering,Detection Objective,Verify the detection objective is clearly documented and aligned to the assessment scope,Detection 
+objective approved,Detection design documentation,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-002,Planning,Detection Engineering,Threat Mapping,Verify the detection is mapped to the appropriate MITRE ATT&CK tactic and technique,ATT&CK mapping completed,
+Detection documentation,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,Detection-Validation-Workflow.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-DET-003,Telemetry,Detection Engineering,Telemetry Sources,Verify all required telemetry sources are available to support the detection,Required telemetry confirmed,
+Telemetry validation evidence,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-004,Implementation,Detection Rule,Rule Deployment,Verify the detection rule is deployed and operational within Splunk,Detection rule active,Splunk configuration,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-005,Implementation,Detection Rule,Search Logic,Verify search logic accurately identifies the intended security event,Search logic validated,Splunk search 
+results,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-006,Execution,Detection Validation,Alert Generation,Verify simulated activity generates the expected alert,Alert successfully generated,SIEM alert evidence,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-007,Execution,Detection Validation,Event Correlation,Verify related events are successfully correlated into a meaningful detection,Successful event correlation,
+Correlation search results,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-DET-008,Quality,Detection Quality,False Positive Review,Evaluate detection for false-positive conditions,Acceptable false-positive rate,Validation report,Pending,
+Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-009,Quality,Detection Quality,False Negative Review,Verify malicious activity is not missed during validation,Acceptable false-negative rate,Validation report,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-010,Quality,Detection Quality,Detection Accuracy,Confirm detection consistently identifies the intended behavior,Detection accuracy validated,Detection 
+performance metrics,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security 
+Team,,
+
+LHT-DET-011,Tuning,Detection Engineering,Rule Optimization,Review thresholds filters exclusions and correlation logic to reduce noise,Detection optimized,Tuning 
+documentation,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-012,Coverage,Detection Engineering,Coverage Validation,Verify the detection contributes to ATT&CK coverage objectives,Coverage confirmed,Coverage assessment,
+Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-013,Documentation,Detection Engineering,Evidence Documentation,Verify detection evidence screenshots searches logs and findings are documented,Documentation 
+complete,Evidence register,Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-014,Approval,Detection Engineering,Technical Review,Verify detection validation has been reviewed and approved by the reviewer,Detection approved,Assessment 
+report,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-DET-015,Closure,Detection Engineering,Assessment Closure,Verify all findings recommendations and lessons learned have been documented,Assessment closed successfully,
+Completed assessment package,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,

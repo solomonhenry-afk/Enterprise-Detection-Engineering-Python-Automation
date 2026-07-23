@@ -1,0 +1,42 @@
+ATTACK_Coverage_ID,MITRE_Tactic,MITRE_Tactic_ID,MITRE_Technique,MITRE_ID,Sub_Technique,Detection_ID,Rule_ID,Sigma_ID,Splunk_Search_ID,Telemetry_Source,Log_Source,
+Asset_Type,Coverage_Level,Coverage_Status,Validation_Status,Attack_Simulation_ID,Evidence_ID,Detection_Confidence,Residual_Risk,Detection_Gap,Recommended_Improvement,
+Owner,Last_Reviewed,Notes
+
+ATK-001,Execution,TA0002,PowerShell,T1059,T1059.001,DET-001,RULE-001,SIG-001,SPL-001,Sysmon Event ID 1; PowerShell Operational Logs,Windows PowerShell,Windows Endpoint,
+High,Covered,Validated,SIM-001,EVD-DET-001,95%,Low,None,Continue rule tuning and periodic validation,Detection Engineering Team,2026-07-22,Validated through Purple Team 
+execution
+
+ATK-002,Credential Access,TA0006,Brute Force,T1110,,DET-002,RULE-002,SIG-002,SPL-002,Security Event ID 4625,Windows Security,Active Directory,High,Covered,Validated,
+SIM-002,EVD-DET-002,94%,Low,None,Refine threshold based on environment baseline,Detection Engineering Team,2026-07-22,Password spraying coverage
+
+ATK-003,Credential Access,TA0006,Kerberoasting,T1558,T1558.003,DET-003,RULE-003,SIG-003,SPL-003,Security Event ID 4769,Kerberos Logs,Domain Controller,High,Covered,
+Validated,SIM-003,EVD-DET-003,96%,Low,Low-volume requests,Integrate behavioral analytics,Detection Engineering Team,2026-07-22,Identity attack detection
+
+ATK-004,Privilege Escalation,TA0004,Account Manipulation,T1098,,DET-004,RULE-004,SIG-004,SPL-004,Security Events 4728/4729,Windows Security,Identity Infrastructure,
+High,Covered,Validated,SIM-004,EVD-DET-004,97%,Low,None,Monitor Tier Zero continuously,Detection Engineering Team,2026-07-22,Privileged group monitoring
+
+ATK-005,Persistence,TA0003,Create Account,T1136,,DET-005,RULE-005,SIG-005,SPL-005,Security Events 4720/4732,Windows Security,Windows Servers,High,Covered,Validated,
+SIM-005,EVD-DET-005,94%,Low,None,Integrate privileged account governance,Detection Engineering Team,2026-07-22,Persistence detection
+
+ATK-006,Lateral Movement,TA0008,Remote Services,T1021,,DET-006,RULE-006,SIG-006,SPL-006,System Event ID 7045,System Logs,Windows Servers,High,Covered,Validated,SIM-006,
+EVD-DET-006,96%,Low,Alternate remote execution methods,Expand lateral movement analytics,Detection Engineering Team,2026-07-22,PsExec validation
+
+ATK-007,Defense Evasion,TA0005,Process Injection,T1055,,DET-007,RULE-007,SIG-007,SPL-007,Sysmon Event ID 8,Sysmon,Windows Endpoint,High,Covered,Validated,SIM-007,
+EVD-DET-007,93%,Medium,Kernel injection visibility,Integrate EDR telemetry,Detection Engineering Team,2026-07-22,Behavioral analytics
+
+ATK-008,Command and Control,TA0011,Application Layer Protocol,T1071,,DET-008,RULE-008,SIG-008,SPL-008,DNS Query Logs,DNS Infrastructure,Network,Medium,Partial,Testing,
+SIM-008,EVD-DET-008,82%,Medium,Encrypted DNS traffic,Implement DNS anomaly analytics,Detection Engineering Team,2026-07-22,Detection tuning required
+
+ATK-009,Execution,TA0002,User Execution,T1204,,DET-009,RULE-009,SIG-009,SPL-009,Suricata EVE JSON,Suricata IDS,Network Perimeter,High,Covered,Validated,SIM-009,
+EVD-DET-009,95%,Low,None,Maintain IDS signature updates,Detection Engineering Team,2026-07-22,Network malware detection
+
+ATK-010,Credential Access,TA0006,Valid Accounts,T1078,,DET-010,RULE-010,SIG-010,SPL-010,Security Event ID 4624,Authentication Logs,Active Directory,High,Covered,
+Validated,SIM-010,EVD-DET-010,91%,Low,Legacy NTLM authentication,Accelerate NTLM decommissioning,Detection Engineering Team,2026-07-22,Identity modernization
+
+ATK-011,Credential Access,TA0006,OS Credential Dumping,T1003,T1003.006,DET-011,RULE-011,SIG-011,SPL-011,Directory Replication Events,Directory Services,
+Domain Controller,Medium,Partial,Testing,SIM-011,EVD-DET-011,88%,Medium,DCSync visibility gaps,Expand production validation,Detection Engineering Team,2026-07-22,
+Awaiting live validation
+
+ATK-012,Privilege Escalation,TA0004,Modify Authentication Process,T1556,,DET-012,RULE-012,SIG-012,SPL-012,Directory Service Event ID 5136,Directory Services,Active 
+Directory,High,Covered,Validated,SIM-012,EVD-DET-012,96%,Low,None,Continue GPO governance reviews,Detection Engineering Team,2026-07-22,Configuration integrity 
+monitoring

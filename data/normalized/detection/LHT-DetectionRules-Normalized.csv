@@ -1,0 +1,51 @@
+Rule_ID,Detection_ID,Rule_Name,Platform,Rule_Type,Detection_Category,MITRE_Tactic,MITRE_Technique,MITRE_ID,Severity,Priority,Status,Log_Source,Telemetry_Source,Rule_Logic,Threshold,Suppression_Logic,False_Positive_Considerations,False_Negative_Considerations,Validation_Status,Coverage_Status,Related_Sigma_ID,Related_Splunk_ID,ATTACK_Mapping,Evidence_ID,Version,Owner,Review_Frequency,Last_Validated,Comments
+
+RULE-001,DET-001,Suspicious PowerShell Execution,Splunk,SIEM,Execution,Execution,PowerShell,T1059.001,High,P1,Production,Windows PowerShell Logs,Sysmon Event ID 1;PowerShell Operational Logs,"Detect encoded, hidden, or Base64 PowerShell execution",5 events in 10 minutes,Exclude approved administrative scripts,"Legitimate administration tools may trigger alerts","PowerShell logging disabled",Validated,Covered,SIG-001,SPL-001,T1059.001,EVD-DET-001,1.0,Detection Engineering Team,Quarterly,
+2026-07-22,Validated during Purple Team simulation
+
+RULE-002,DET-002,Multiple Failed Logons,Splunk,Correlation,Credential Access,Credential Access,Brute Force,T1110,Medium,P2,Production,Windows Security Logs,Event ID 
+4625,"Detect repeated authentication failures from same source",10 failures in 5 minutes,Exclude service accounts,"Users forgetting passwords","Slow password spray may 
+evade threshold",Validated,Covered,SIG-002,SPL-002,T1110,EVD-DET-002,1.0,Detection Engineering Team,Monthly,2026-07-22,Supports password spraying detection
+
+RULE-003,DET-003,Kerberoasting Detection,Splunk,Correlation,Credential Access,Credential Access,Kerberoasting,T1558.003,Critical,P1,Production,Windows Security Logs,
+Event ID 4769,"Detect abnormal volume of Kerberos TGS requests",Multiple TGS requests for service accounts,Exclude known backup systems,"Legitimate application requests"
+"Low-volume attacks may evade detection",Validated,Covered,SIG-003,SPL-003,T1558.003,EVD-DET-003,1.0,Detection Engineering Team,Quarterly,2026-07-22,Enterprise Active 
+Directory detection
+
+RULE-004,DET-004,Privileged Group Membership Change,Splunk,SIEM,Privilege Escalation,Privilege Escalation,Account Manipulation,T1098,High,P1,Production,Windows Security 
+Logs,Event ID 4728;4729,"Detect additions/removals from privileged groups",Immediate alert,None,"Approved administrative changes","Manual directory changes outside audit
+scope",Validated,Covered,SIG-004,SPL-004,T1098,EVD-DET-004,1.0,Detection Engineering Team,Monthly,2026-07-22,Tier Zero monitoring
+
+RULE-005,DET-005,New Administrator Account Creation,Splunk,SIEM,Persistence,Persistence,Create Account,T1136,High,P1,Production,Windows Security Logs,Event ID 4720;4732,
+"Detect creation of privileged local or domain accounts",Immediate alert,Approved provisioning windows,"Authorized onboarding","Offline account creation",Validated,
+Covered,SIG-005,SPL-005,T1136,EVD-DET-005,1.0,Detection Engineering Team,Monthly,2026-07-22,Persistence monitoring
+
+RULE-006,DET-006,Remote Service Installation,Splunk,Correlation,Lateral Movement,Lateral Movement,Remote Services,T1021,Critical,P1,Production,Windows System Logs,Event 
+ID 7045,"Detect remote service creation associated with PsExec or lateral movement",Immediate alert,Approved software deployment windows,"Software deployment tools",
+"Service creation through unmanaged systems",Validated,Covered,SIG-006,SPL-006,T1021,EVD-DET-006,1.0,Detection Engineering Team,Quarterly,2026-07-22,Supports lateral 
+movement detection
+
+RULE-007,DET-007,Process Injection Detection,EDR,Behavioral,Defense Evasion,Defense Evasion,Process Injection,T1055,High,P1,Production,Sysmon,Sysmon Event ID 8,"Detect 
+suspicious process injection activity",Immediate alert,Approved endpoint protection processes,"Security software activity","Kernel-level injection not logged",Validated,
+Covered,SIG-007,SPL-007,T1055,EVD-DET-007,1.0,Detection Engineering Team,Quarterly,2026-07-22,Endpoint behavioral detection
+
+RULE-008,DET-008,DNS Beaconing Detection,Splunk,Analytics,Command and Control,Command and Control,Application Layer Protocol,T1071,High,P2,Testing,DNS Logs,DNS Query 
+Logs,"Detect repetitive outbound DNS beaconing patterns",Repeated queries over baseline,Known CDN domains,"Automated update services","Low-frequency beacon traffic",
+Testing,Partial,SIG-008,SPL-008,T1071,EVD-DET-008,0.9,Detection Engineering Team,Quarterly,2026-07-22,Requires tuning
+
+RULE-009,DET-009,Suricata Malware Alert Correlation,Suricata,IDS,Execution,Execution,User Execution,T1204,High,P2,Production,Suricata,EVE JSON Alerts,"Correlate IDS 
+malware signatures with endpoint telemetry",Any confirmed malware signature,None,"Test malware","Encrypted traffic may limit visibility",Validated,Covered,SIG-009,
+SPL-009,T1204,EVD-DET-009,1.0,Detection Engineering Team,Quarterly,2026-07-22,Network detection
+
+RULE-010,DET-010,NTLM Authentication Monitoring,Splunk,SIEM,Credential Access,Credential Access,Valid Accounts,T1078,Medium,P2,Production,Windows Security Logs,Event 
+ID 4624 (NTLM),"Detect NTLM authentication events",Baseline deviation,None,"Legacy applications","Offline authentication",Validated,Covered,SIG-010,SPL-010,T1078,
+EVD-DET-010,1.0,Detection Engineering Team,Monthly,2026-07-22,Supports NTLM reduction
+
+RULE-011,DET-011,DCSync Activity Detection,Splunk,Correlation,Credential Access,Credential Access,OS Credential Dumping,T1003.006,Critical,P1,Testing,Directory Services,
+Replication Events,"Detect unauthorized Active Directory replication requests",Immediate alert,Authorized domain controllers only,"Backup or recovery operations",
+"Replication through trusted controllers",Testing,Partial,SIG-011,SPL-011,T1003.006,EVD-DET-011,0.9,Detection Engineering Team,Quarterly,2026-07-22,Requires production 
+validation
+
+RULE-012,DET-012,GPO Modification Detection,Splunk,SIEM,Privilege Escalation,Privilege Escalation,Modify Authentication Process,T1556,High,P1,Production,Directory 
+Services,Event ID 5136,"Detect unauthorized Group Policy modifications",Immediate alert,Approved maintenance windows,"Authorized GPO administration","Direct SYSVOL 
+changes",Validated,Covered,SIG-012,SPL-012,T1556,EVD-DET-012,1.0,Detection Engineering Team,Quarterly,2026-07-22,Protects enterprise configuration

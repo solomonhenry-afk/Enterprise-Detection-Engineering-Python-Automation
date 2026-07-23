@@ -1,0 +1,58 @@
+LHT-PurpleTeam-Normalized.csv
+        │
+        │ Validation_ID
+        │
+        ├───────────────┐
+        │               │
+        ▼               ▼
+Detection Rule A   Detection Rule B
+Detection Rule C   Detection Rule D
+
+# ================================================================================
+# Lighthouse Technology - Enterprise Security Evolution
+# Domain 5 - Enterprise Active Directory Penetration Testing & Security Auditing
+# Phase F - Safe Purple Team Validation
+# Dataset: LHT-DetectionValidation-Normalized.csv
+#
+# PURPOSE
+# -------
+# This normalized dataset documents the validation of individual detection rules
+# during Purple Team exercises. Each record represents one detection rule tested
+# against a controlled attack simulation to verify monitoring effectiveness,
+# detection accuracy, telemetry quality, and analyst visibility.
+#
+# Unlike the Purple Team master dataset, which records an entire validation
+# exercise, this dataset focuses specifically on detection engineering and the
+# operational performance of individual detections.
+#
+# RELATIONSHIPS
+# -------------
+# Parent Dataset
+#   • LHT-PurpleTeam-Normalized.csv
+#
+# Primary Key
+#   • Detection_Validation_ID
+#
+# Foreign Key
+#   • Validation_ID
+#
+# Referenced By
+#   • Detection Coverage Reports
+#   • Splunk Validation Reports
+#   • Purple Team Assessment Reports
+#   • Executive Reporting
+#
+# DATA QUALITY REQUIREMENTS
+# -------------------------
+# • One detection validation per row.
+# • Validation_ID must reference an existing Purple Team exercise.
+# • Detection Rule IDs should remain consistent across assessments.
+# • ATT&CK mappings should reference official MITRE Technique IDs.
+# • Detection outcomes must be supported by collected telemetry.
+# • Validation timestamps should use ISO-8601 format.
+# ================================================================================
+
+Detection_Validation_ID,Validation_ID,Assessment_ID,Detection_Rule_ID,Detection_Name,Detection_Category,Detection_Objective,SIEM_Platform,Detection_Type,Data_Source,
+Telemetry_Source,Log_Source,Event_IDs_Monitored,MITRE_Tactic,MITRE_Technique_ID,Attack_Technique,Threat_Scenario,Validation_Method,Expected_Detection,Observed_Detection,
+Detection_Status,Alert_Generated,Alert_Severity,Rule_Accuracy,False_Positive_Observed,False_Negative_Observed,Tuning_Required,Detection_Coverage,Investigation_Status,
+Evidence_ID,Evidence_Location,Related_Dataset,Validation_Start_Time,Validation_End_Time,Security_Assessor,Reviewer,Approval_Status,Validation_Date,Comments

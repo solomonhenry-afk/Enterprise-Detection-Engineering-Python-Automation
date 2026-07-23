@@ -1,0 +1,54 @@
+# ================================================================================
+# Lighthouse Technology - Enterprise Security Evolution
+# Domain 5 - Enterprise Active Directory Penetration Testing & Security Auditing
+# Phase F - Safe Purple Team Validation
+# Dataset: LHT-PurpleTeam-Normalized.csv
+#
+# PURPOSE
+# -------
+# This normalized dataset serves as the master record for every authorized Purple
+# Team validation activity conducted during the Active Directory security assessment.
+#
+# Each record represents one controlled validation scenario executed to verify
+# defensive controls, detection visibility, telemetry generation, evidence quality,
+# and remediation effectiveness.
+#
+# The dataset provides traceability between attack simulations, telemetry,
+# detection engineering, evidence collection, ATT&CK mapping, and governance
+# reporting.
+#
+# RELATIONSHIPS
+# -------------
+# Primary Key:
+#   Validation_ID
+#
+# Referenced By:
+#   • LHT-Telemetry-Normalized.csv
+#   • LHT-DetectionValidation-Normalized.csv
+#   • LHT-DetectionCoverage-Normalized.csv
+#   • LHT-AttackSimulation-Normalized.csv
+#   • LHT-Validation-Metadata.csv
+#
+# Used By:
+#   • Purple Team Assessment Reports
+#   • Detection Engineering
+#   • Executive Reporting
+#   • Evidence Register
+#   • ATT&CK Coverage Mapping
+#
+# DATA QUALITY REQUIREMENTS
+# -------------------------
+# • One validation activity per row.
+# • Every Validation_ID must be unique.
+# • All timestamps should use ISO-8601 format.
+# • ATT&CK mappings should reference official Technique IDs.
+# • Evidence IDs must reference the Evidence Register.
+# • Findings must be reproducible.
+# • No production systems are targeted.
+# ================================================================================
+
+Validation_ID,Assessment_ID,Validation_Name,Validation_Category,Validation_Objective,Attack_Technique,MITRE_Technique_ID,Threat_Tactic,Validation_Scope,Target_System,
+Target_Hostname,Target_IP,Identity_Tested,Privilege_Level,Detection_Objective,Telemetry_Source,Detection_Rule,Expected_Event_IDs,Expected_Logs,Expected_Behavior,
+Validation_Method,Validation_Status,Detection_Result,Telemetry_Status,Evidence_Status,Correlation_Status,Risk_Level,Business_Impact,False_Positive_Observed,
+False_Negative_Observed,Coverage_Status,Remediation_Required,Evidence_ID,Assessment_Template,Related_Dataset,Evidence_Location,Validation_Start_Time,Validation_End_Time,
+Duration_Minutes,Security_Assessor,Reviewer,Approval_Status,Validation_Date,Notes

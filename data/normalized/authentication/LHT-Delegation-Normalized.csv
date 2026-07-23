@@ -1,0 +1,189 @@
+# Lighthouse Technology
+# Enterprise Security Evolution
+# Domain 5 — Enterprise Active Directory Penetration Testing & Security Auditing
+#
+# Dataset: LHT-Delegation-Normalized.csv
+#
+# Purpose:
+# This normalized dataset documents enterprise delegation
+# assessment observations collected during the authorized
+# Active Directory security assessment.
+#
+# It supports:
+# - Delegation security assessment
+# - Authentication trust analysis
+# - Privilege exposure assessment
+# - Attack path analysis
+# - Identity governance
+# - Detection engineering
+# - Risk analytics
+# - Enterprise remediation planning
+#
+# Evidence Status:
+# This file defines the normalized dataset schema only.
+# Assessment observations shall only be recorded after
+# authorized evidence collection and validation.
+
+Delegation_Record_ID,Identity_ID,System_ID,Relationship_ID,Collection_Metadata_ID,Delegation_Type,Delegated_Identity,Target_Service,Target_System,Trust_Boundary,Delegation_Purpose,Tier_Classification,Privilege_Level,Kerberos_Dependency,Authentication_Protocol,Configuration_Status,Administrative_Approval,Evidence_ID,Evidence_Source,Evidence_Status,Validation_Status,Detection_Coverage,Telemetry_Source,Related_Event_IDs,MITRE_ATTCK_Technique,Risk_Rating,Assessment_Phase,Assessment_Date,Assessor,Comments
+
+# ------------------------------------------------------------------
+# DATA DICTIONARY
+# ------------------------------------------------------------------
+
+# Delegation_Record_ID
+# Unique identifier for each delegation assessment observation.
+
+# Identity_ID
+# References the associated identity stored within
+# LHT-Identity-Normalized.csv.
+
+# System_ID
+# References the associated endpoint or server stored within
+# LHT-System-Normalized.csv.
+
+# Relationship_ID
+# References authentication or privilege relationships stored within
+# LHT-Relationship-Normalized.csv.
+
+# Collection_Metadata_ID
+# References collection metadata stored within
+# LHT-Collection-Metadata.csv.
+
+# Delegation_Type
+# Delegation model identified.
+# Examples:
+# None
+# Constrained
+# Unconstrained
+# Resource-Based Constrained Delegation (RBCD)
+
+# Delegated_Identity
+# Identity or service account configured for delegation.
+
+# Target_Service
+# Service receiving delegated authentication.
+
+# Target_System
+# Destination host or application receiving delegated authentication.
+
+# Trust_Boundary
+# Administrative or organizational boundary crossed.
+# Examples:
+# Same Host
+# Same Domain
+# Cross-Domain
+# Cross-Forest
+
+# Delegation_Purpose
+# Documented business or operational justification
+# for the delegation relationship.
+
+# Tier_Classification
+# Examples:
+# Tier 0
+# Tier 1
+# Tier 2
+
+# Privilege_Level
+# Examples:
+# Standard
+# Elevated
+# Administrative
+# Tier Zero
+
+# Kerberos_Dependency
+# Indicates whether Kerberos is required.
+# Examples:
+# Yes
+# No
+# Partial
+
+# Authentication_Protocol
+# Primary authentication protocol.
+# Examples:
+# Kerberos
+# NTLM
+# Mixed
+
+# Configuration_Status
+# Current assessment status.
+# Examples:
+# Enabled
+# Disabled
+# Under Review
+
+# Administrative_Approval
+# Indicates whether documented approval exists.
+# Examples:
+# Approved
+# Pending
+# Not Documented
+
+# Evidence_ID
+# Lighthouse Evidence Identifier.
+# Example:
+# LHT-Evidence-###
+
+# Evidence_Source
+# Collection source.
+# Examples:
+# PowerShell
+# Active Directory
+# BloodHound Community Edition
+# ADRecon
+# Group Policy Report
+
+# Evidence_Status
+# Proposed
+# Collected
+# Validated
+# Simulated
+# Remediated
+
+# Validation_Status
+# Pending
+# Validated
+# Rejected
+
+# Detection_Coverage
+# Indicates whether monitoring exists.
+# Examples:
+# Yes
+# Partial
+# No
+
+# Telemetry_Source
+# Supporting telemetry source.
+# Examples:
+# Windows Security Logs
+# Sysmon
+# Splunk
+
+# Related_Event_IDs
+# Relevant Windows Security Event IDs supporting
+# delegation analysis.
+
+# MITRE_ATTCK_Technique
+# Associated MITRE ATT&CK technique(s), where applicable.
+
+# Risk_Rating
+# Informational
+# Low
+# Medium
+# High
+# Critical
+
+# Assessment_Phase
+# Enterprise Security Evolution phase producing
+# this assessment observation.
+
+# Assessment_Date
+# Date the assessment observation was recorded.
+
+# Assessor
+# Security assessor responsible for validation.
+
+# Comments
+# Additional technical observations, trust relationship notes,
+# governance considerations, detection opportunities,
+# or remediation recommendations.

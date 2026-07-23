@@ -1,0 +1,91 @@
+Evidence_ID,Assessment_ID,Detection_ID,Detection_Name,Evidence_Type,Description,Source_System,Collection_Method,File_Location,MITRE_Technique,Validation_Status,
+Collected_By,Review_Status,Date_Collected,Notes
+
+EVD-DET-001,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Alert Evidence,Splunk detection alert generated from simulated PowerShell execution,
+Splunk SIEM,SIEM alert export,evidence/validation/detection/alerts/EVD-DET-001.json,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,
+2026-07-22,Primary detection trigger evidence
+
+EVD-DET-002,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Endpoint Telemetry,Sysmon process creation event showing PowerShell execution,Sysmon,
+Windows Event Collection,evidence/validation/detection/logs/EVD-DET-002.evtx,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,2026-07-22,
+Process execution telemetry
+
+EVD-DET-003,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,PowerShell Logging,PowerShell script block logging records,System Event Logs,PowerShell 
+Operational Logs,evidence/validation/detection/powershell/EVD-DET-003.log,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,2026-07-22,
+Command execution visibility
+
+EVD-DET-004,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Detection Rule Evidence,Sigma detection rule implementation,detections/sigma,Sigma 
+Repository,detections/sigma/LHT-Sigma-Rule-Template.yml,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,2026-07-22,Detection logic artifact
+
+EVD-DET-005,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,SIEM Query Evidence,Splunk SPL detection implementation,detections/splunk,Splunk 
+Search Repository,detections/splunk/LHT-Splunk-Search-Template.spl,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,2026-07-22,
+SIEM implementation artifact
+
+EVD-DET-006,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Purple Team Simulation Evidence,Adversary simulation execution record,Purple Team 
+Validation Framework,Simulation Documentation,evidence/simulated/validation/SIM-001.md,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,
+2026-07-22,Attack simulation evidence
+
+EVD-DET-007,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Alert Investigation Evidence,SOC analyst investigation notes,SOC Workflow,Investigation 
+Documentation,evidence/validation/detection/investigation/EVD-DET-007.md,T1059.001,Validated,SOC Analyst Team,Approved,2026-07-22,Analyst investigation record
+
+EVD-DET-008,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,False Positive Analysis,Tuning and false positive review documentation,Detection 
+Engineering Process,Tuning Review,evidence/validation/detection/tuning/EVD-DET-008.md,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,
+2026-07-22,Detection optimization evidence
+
+EVD-DET-009,LHT-COVERAGE-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,MITRE ATT&CK Coverage Evidence,ATT&CK technique coverage validation,ATT&CK Mapping 
+Repository,Coverage Assessment,data/normalized/detection/LHT-ATTACKCoverage-Normalized.csv,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,
+2026-07-22,Technique coverage evidence
+
+EVD-DET-010,LHT-DET-ASSESS-001,DET-001,Suspicious PowerShell Execution Detection,Detection Metrics Evidence,Detection performance measurement results,Detection Metrics 
+Dataset,Metrics Collection,data/normalized/detection/LHT-DetectionMetrics-Normalized.csv,T1059.001,Validated,Lighthouse Technology Detection Engineering Team,Approved,
+2026-07-22,Performance tracking evidence
+
+### Artifact Role in Phase G
+
+This evidence register becomes the **chain-of-custody layer** connecting every detection engineering activity:
+
+```text
+Detection Use Case
+        |
+        ↓
+Detection Rule
+        |
+        ↓
+Sigma Implementation
+        |
+        ↓
+Splunk Implementation
+        |
+        ↓
+Purple Team Simulation
+        |
+        ↓
+Alert Generation
+        |
+        ↓
+Investigation Evidence
+        |
+        ↓
+Tuning Evidence
+        |
+        ↓
+Coverage Measurement
+        |
+        ↓
+Executive Reporting
+```
+
+It supports the following Phase G datasets:
+
+```text
+data/normalized/detection/
+│
+├── LHT-DetectionUseCases-Normalized.csv
+├── LHT-DetectionRules-Normalized.csv
+├── LHT-SigmaRules-Normalized.csv
+├── LHT-SplunkSearches-Normalized.csv
+├── LHT-DetectionCoverage-Normalized.csv
+├── LHT-ATTACKCoverage-Normalized.csv
+├── LHT-AlertValidation-Normalized.csv
+├── LHT-FalsePositive-Normalized.csv
+└── LHT-DetectionMetrics-Normalized.csv
+```

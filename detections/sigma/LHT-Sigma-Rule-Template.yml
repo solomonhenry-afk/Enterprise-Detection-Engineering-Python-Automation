@@ -1,0 +1,253 @@
+title: Lighthouse Technology Detection Engineering Sigma Rule Template
+
+id: lht-sigma-template-001
+
+status: experimental
+
+description: |
+  Enterprise detection rule template developed by Lighthouse Technology
+  Detection Engineering Team.
+
+  This Sigma rule defines the detection logic, telemetry requirements,
+  MITRE ATT&CK mapping, validation requirements, and operational metadata
+  required for global SOC deployment.
+
+author:
+  - Lighthouse Technology Security Engineering Team
+
+date: 2026-07-22
+
+modified: 2026-07-22
+
+version: "1.0"
+
+references:
+  - https://attack.mitre.org/
+  - https://sigmahq.io/
+
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.command_and_scripting_interpreter
+  - lighthouse.detection-engineering
+  - lighthouse.phase-g
+
+logsource:
+  category: process_creation
+  product: windows
+  service: sysmon
+
+detection:
+
+  selection:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+
+  suspicious_arguments:
+    CommandLine|contains:
+      - '-EncodedCommand'
+      - '-ExecutionPolicy Bypass'
+      - '-WindowStyle Hidden'
+      - '-NoProfile'
+      - 'Invoke-Expression'
+      - 'DownloadString'
+      - 'Net.WebClient'
+
+  suspicious_parent_process:
+    ParentImage|endswith:
+      - '\winword.exe'
+      - '\excel.exe'
+      - '\outlook.exe'
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+
+  condition:
+    selection and (suspicious_arguments or suspicious_parent_process)
+
+falsepositives:
+  - Authorized administrative PowerShell scripts
+  - Enterprise automation tools
+  - Software deployment systems
+  - Security administration activities
+
+level: high
+
+
+fields:
+
+  - Computer
+  - User
+  - CommandLine
+  - ParentImage
+  - Image
+  - ProcessId
+  - ParentProcessId
+  - Hashes
+
+
+---
+# Lighthouse Technology Detection Metadata
+
+lht_metadata:
+
+  detection_id: DET-001
+
+  rule_id: RULE-001
+
+  sigma_id: SIG-001
+
+  detection_name:
+    Suspicious PowerShell Execution Detection
+
+  detection_category:
+    Endpoint Detection
+
+  detection_type:
+    Behavioral Correlation Rule
+
+  severity:
+    High
+
+  priority:
+    High
+
+
+  mitre_attack:
+
+    tactic:
+      - Execution
+
+    technique:
+      id:
+        T1059.001
+
+      name:
+        PowerShell
+
+
+  telemetry_requirements:
+
+    required:
+
+      - Sysmon Event ID 1 Process Creation
+      - PowerShell Script Block Logging
+      - Windows Security Logs
+
+    recommended:
+
+      - EDR Telemetry
+      - Network Connection Logs
+
+
+  validation:
+
+    simulation_id:
+      SIM-001
+
+    validation_method:
+      Purple Team Adversary Simulation
+
+    expected_result:
+      Detection alert generated with supporting telemetry
+
+
+  siem_mapping:
+
+    splunk:
+
+      search_id:
+        SPL-001
+
+      sourcetype:
+        XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+
+  evidence_mapping:
+
+    evidence_id:
+      EVD-DET-001
+
+    evidence_type:
+
+      - Alert Screenshot
+      - SIEM Event Output
+      - Endpoint Telemetry
+
+
+  lifecycle:
+
+    status:
+      Production Validated
+
+    owner:
+      Lighthouse Technology Detection Engineering Team
+
+    review_frequency:
+      Quarterly
+
+
+  tuning:
+
+    false_positive_management:
+
+      known_exclusions:
+
+        - Approved administrator accounts
+        - Signed enterprise scripts
+        - Software deployment systems
+
+      tuning_actions:
+
+        - Baseline normal PowerShell activity
+        - Correlate user behavior
+        - Validate parent process relationships
+
+
+  metrics:
+
+    target:
+
+      detection_accuracy:
+        ">90%"
+
+      false_positive_rate:
+        "<10%"
+
+      validation_status:
+        Passed
+
+
+  documentation:
+
+    related_artifacts:
+
+      detection_use_case:
+        templates/detection/LHT-Detection-UseCase-Template.md
+
+      assessment_template:
+        templates/detection/LHT-Detection-Assessment-Template.md
+
+      normalized_metadata:
+        data/normalized/detection/LHT-DetectionMetadata.csv
+
+      detection_metrics:
+        data/normalized/detection/LHT-DetectionMetrics-Normalized.csv
+
+
+---
+# Change History
+
+changes:
+
+  - version: "1.0"
+
+    date:
+      2026-07-22
+
+    author:
+      Lighthouse Technology Security Engineering Team
+
+    description:
+      Initial enterprise Sigma detection rule template creation.

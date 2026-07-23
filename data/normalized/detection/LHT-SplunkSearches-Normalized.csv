@@ -1,0 +1,56 @@
+Search_ID,Rule_ID,Detection_ID,Search_Name,Splunk_App,Data_Model,Index,Sourcetype,Log_Source,MITRE_Tactic,MITRE_Technique,MITRE_ID,Severity,Search_Type,
+Scheduled_Interval,Time_Window,SPL_Query_Summary,Required_Fields,Trigger_Condition,Risk_Score,False_Positive_Considerations,False_Negative_Considerations,
+Validation_Status,Coverage_Status,Evidence_ID,Dashboard,Owner,Version,Last_Validated,Notes
+
+SPL-001,RULE-001,DET-001,Suspicious PowerShell Execution Search,Enterprise Security,Endpoint,index=wineventlog,XmlWinEventLog:Microsoft-Windows-PowerShell/Operational,
+PowerShell Logs,Execution,PowerShell,T1059.001,High,Correlation Search,5 minutes,-15m,"Detect encoded or hidden PowerShell execution",Computer;User;CommandLine;
+ProcessGUID,Encoded PowerShell detected,90,Legitimate administrative automation,PowerShell logging disabled,Validated,Covered,EVD-DET-001,Detection Engineering 
+Dashboard,Detection Engineering Team,1.0,2026-07-22,Purple Team validated
+
+SPL-002,RULE-002,DET-002,Failed Logon Correlation,Enterprise Security,Authentication,index=wineventlog,WinEventLog:Security,Windows Security Logs,Credential Access,
+Brute Force,T1110,Medium,Correlation Search,5 minutes,-10m,"Detect repeated failed authentication attempts",AccountName;SourceIP;EventCode,10 failed logons in 5 minutes,
+70,Incorrect password entry,Slow password spraying,Validated,Covered,EVD-DET-002,SOC Operations Dashboard,Detection Engineering Team,1.0,2026-07-22,Supports 
+authentication monitoring
+
+SPL-003,RULE-003,DET-003,Kerberoasting Detection,Enterprise Security,Authentication,index=wineventlog,WinEventLog:Security,Kerberos Logs,Credential Access,Kerberoasting,
+T1558.003,Critical,Correlation Search,10 minutes,-30m,"Identify abnormal Kerberos TGS requests",ServiceName;AccountName;TicketOptions,Abnormal service ticket requests,
+95,Large application environments,Low-volume attacks,Validated,Covered,EVD-DET-003,Identity Security Dashboard,Detection Engineering Team,1.0,2026-07-22,Enterprise AD 
+monitoring
+
+SPL-004,RULE-004,DET-004,Privileged Group Membership Changes,Enterprise Security,Change,index=wineventlog,WinEventLog:Security,Directory Services,Privilege Escalation,
+Account Manipulation,T1098,High,Real-Time,Real-Time,-5m,"Detect privileged group modifications",GroupName;MemberName;EventCode,Immediate privileged group change,90,
+Approved administration,Offline directory modifications,Validated,Covered,EVD-DET-004,Privilege Monitoring Dashboard,Detection Engineering Team,1.0,2026-07-22,Tier Zero 
+visibility
+
+SPL-005,RULE-005,DET-005,Administrator Account Creation,Enterprise Security,Identity,index=wineventlog,WinEventLog:Security,Windows Security Logs,Persistence,Create 
+Account,T1136,High,Real-Time,Real-Time,-5m,"Detect creation of privileged user accounts",UserName;GroupName;EventCode,New administrator account detected,90,Approved 
+onboarding,Offline account creation,Validated,Covered,EVD-DET-005,Identity Dashboard,Detection Engineering Team,1.0,2026-07-22,Persistence detection
+
+SPL-006,RULE-006,DET-006,Remote Service Installation Detection,Enterprise Security,Endpoint,index=wineventlog,WinEventLog:System,System Logs,Lateral Movement,Remote 
+Services,T1021,Critical,Correlation Search,5 minutes,-15m,"Detect Event ID 7045 indicating remote service creation",ServiceName;Host;User,Remote service installed,95,
+Software deployment tools,Unmonitored systems,Validated,Covered,EVD-DET-006,Endpoint Dashboard,Detection Engineering Team,1.0,2026-07-22,Supports PsExec detection
+
+SPL-007,RULE-007,DET-007,Sysmon Process Injection Detection,Enterprise Security,Endpoint,index=sysmon,XmlWinEventLog:Microsoft-Windows-Sysmon/Operational,Sysmon,Defense 
+Evasion,Process Injection,T1055,High,Correlation Search,5 minutes,-15m,"Detect Sysmon Event ID 8",SourceProcessGUID;TargetProcessGUID,Process injection observed,90,
+Security software activity,Kernel-level injection,Validated,Covered,EVD-DET-007,Endpoint Dashboard,Detection Engineering Team,1.0,2026-07-22,Behavior-based detection
+
+SPL-008,RULE-008,DET-008,DNS Beaconing Analytics,Enterprise Security,Network,index=dns,DNS,DNS Logs,Command and Control,Application Layer Protocol,T1071,High,Scheduled 
+Search,15 minutes,-60m,"Detect repetitive DNS beaconing",Query;ClientIP;Frequency,Beacon frequency exceeds baseline,80,CDNs and update services,Low-frequency beaconing,
+Testing,Partial,EVD-DET-008,Network Dashboard,Detection Engineering Team,0.9,2026-07-22,Under tuning
+
+SPL-009,RULE-009,DET-009,Suricata Malware Correlation,Enterprise Security,Network,index=suricata,suricata:json,Suricata IDS,Execution,User Execution,T1204,High,
+Correlation Search,5 minutes,-15m,"Correlate Suricata malware alerts with endpoint telemetry",Signature;SourceIP;DestinationIP,Confirmed malware signature,85,Security 
+testing exercises,Encrypted traffic,Validated,Covered,EVD-DET-009,Network Security Dashboard,Detection Engineering Team,1.0,2026-07-22,IDS correlation
+
+SPL-010,RULE-010,DET-010,NTLM Authentication Monitoring,Enterprise Security,Authentication,index=wineventlog,WinEventLog:Security,Authentication Logs,Credential Access,
+Valid Accounts,T1078,Medium,Scheduled Search,30 minutes,-24h,"Identify NTLM authentication usage",AuthenticationPackage;User;Host,Unexpected NTLM usage,60,Legacy 
+applications,Offline authentication,Validated,Covered,EVD-DET-010,Authentication Dashboard,Detection Engineering Team,1.0,2026-07-22,Supports NTLM reduction
+
+SPL-011,RULE-011,DET-011,DCSync Activity Detection,Enterprise Security,Directory,index=wineventlog,WinEventLog:Security,Directory Services,Credential Access,
+OS Credential Dumping,T1003.006,Critical,Correlation Search,5 minutes,-30m,"Detect unauthorized replication requests",SourceHost;Account;ReplicationRequest,Replication 
+from non-domain controller,98,Authorized backup operations,Trusted replication paths,Testing,Partial,EVD-DET-011,Identity Dashboard,Detection Engineering Team,
+0.9,2026-07-22,Awaiting production validation
+
+SPL-012,RULE-012,DET-012,GPO Modification Monitoring,Enterprise Security,Directory,index=wineventlog,WinEventLog:Security,Directory Services,Privilege Escalation,Modify 
+Authentication Process,T1556,High,Real-Time,Real-Time,-10m,"Detect Group Policy modifications",ObjectName;User;EventCode,GPO object modified,90,Approved maintenance 
+windows,Direct SYSVOL modifications,Validated,Covered,EVD-DET-012,Configuration Dashboard,Detection Engineering Team,1.0,2026-07-22,Enterprise configuration monitoring

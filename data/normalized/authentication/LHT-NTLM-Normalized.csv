@@ -1,0 +1,180 @@
+# Lighthouse Technology
+# Enterprise Security Evolution
+# Domain 5 — Enterprise Active Directory Penetration Testing & Security Auditing
+#
+# Dataset: LHT-NTLM-Normalized.csv
+#
+# Purpose:
+# This normalized dataset documents NTLM authentication exposure
+# identified during the authorized Active Directory security assessment.
+#
+# It supports:
+# - Legacy authentication assessment
+# - Identity security analysis
+# - Credential security assessment
+# - Detection engineering
+# - Infrastructure hardening
+# - Risk analytics
+# - Enterprise remediation planning
+#
+# Evidence Status:
+# This file defines the dataset schema only.
+# No assessment findings shall be recorded until evidence has been
+# collected and validated within the authorized laboratory.
+
+NTLM_Record_ID,Identity_ID,System_ID,Relationship_ID,Collection_Metadata_ID,Authentication_Protocol,NTLM_Version,Authentication_Context,Authentication_Source,Authentication_Target,Legacy_Dependency,SMB_Association,LDAP_Association,WinRM_Association,Credential_Type,NTLM_Restriction_Status,Policy_Reference,Evidence_ID,Evidence_Source,Evidence_Status,Validation_Status,Detection_Coverage,Telemetry_Source,Related_Event_IDs,MITRE_ATTCK_Technique,Risk_Rating,Assessment_Phase,Assessment_Date,Assessor,Comments
+
+# ------------------------------------------------------------------
+# DATA DICTIONARY
+# ------------------------------------------------------------------
+
+# NTLM_Record_ID
+# Unique identifier for each NTLM assessment observation.
+
+# Identity_ID
+# References the associated identity within
+# LHT-Identity-Normalized.csv.
+
+# System_ID
+# References the associated endpoint or server within
+# LHT-System-Normalized.csv.
+
+# Relationship_ID
+# References authentication or trust relationships stored within
+# LHT-Relationship-Normalized.csv.
+
+# Collection_Metadata_ID
+# References collection information stored within
+# LHT-Collection-Metadata.csv.
+
+# Authentication_Protocol
+# Authentication protocol observed.
+# Expected value for this dataset:
+# NTLM
+
+# NTLM_Version
+# NTLM protocol version observed.
+# Examples:
+# NTLMv1
+# NTLMv2
+# Unknown
+
+# Authentication_Context
+# Business or technical context of authentication.
+# Examples:
+# Interactive
+# Network
+# Service
+# Scheduled Task
+# Remote Administration
+
+# Authentication_Source
+# Source host initiating authentication.
+
+# Authentication_Target
+# Destination system receiving authentication.
+
+# Legacy_Dependency
+# Indicates whether NTLM is required due to legacy application,
+# operating system, or business dependency.
+# Examples:
+# Yes
+# No
+# Under Review
+
+# SMB_Association
+# Indicates whether SMB services rely on NTLM.
+
+# LDAP_Association
+# Indicates whether LDAP authentication involves NTLM.
+
+# WinRM_Association
+# Indicates whether WinRM authentication involves NTLM.
+
+# Credential_Type
+# Credential category.
+# Examples:
+# User Credential
+# Service Account
+# Computer Account
+# Local Account
+
+# NTLM_Restriction_Status
+# Enterprise restriction status.
+# Examples:
+# Allowed
+# Restricted
+# Disabled
+# Not Configured
+
+# Policy_Reference
+# Associated Group Policy or authentication policy reference.
+
+# Evidence_ID
+# Lighthouse Evidence Identifier.
+# Example:
+# LHT-Evidence-###
+
+# Evidence_Source
+# Collection source.
+# Examples:
+# Windows Security Log
+# Splunk
+# PowerShell
+# Group Policy Report
+# Registry Configuration
+
+# Evidence_Status
+# Proposed
+# Collected
+# Validated
+# Simulated
+# Remediated
+
+# Validation_Status
+# Pending
+# Validated
+# Rejected
+
+# Detection_Coverage
+# Indicates whether monitoring exists.
+# Examples:
+# Yes
+# Partial
+# No
+
+# Telemetry_Source
+# Supporting telemetry source.
+# Examples:
+# Windows Security Logs
+# Sysmon
+# Splunk
+
+# Related_Event_IDs
+# Relevant Windows Security Event IDs supporting
+# authentication assessment.
+
+# MITRE_ATTCK_Technique
+# Associated MITRE ATT&CK technique(s), where applicable.
+
+# Risk_Rating
+# Informational
+# Low
+# Medium
+# High
+# Critical
+
+# Assessment_Phase
+# Enterprise Security Evolution phase producing
+# this assessment observation.
+
+# Assessment_Date
+# Date the assessment observation was recorded.
+
+# Assessor
+# Security assessor responsible for validation.
+
+# Comments
+# Additional technical notes, research observations,
+# detection considerations, governance context,
+# or remediation recommendations.

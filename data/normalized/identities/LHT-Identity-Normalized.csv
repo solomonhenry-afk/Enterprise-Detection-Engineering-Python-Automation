@@ -1,0 +1,24 @@
+Identity_ID,Identity_Type,Account_Name,Display_Name,Domain,Organizational_Unit,Account_Status,Enabled,Privilege_Level,Admin_Role,Tier_Level,Group_Membership,Last_Logon,
+Password_Last_Set,Password_Policy_Status,Service_Account,Delegation_Configured,Authentication_Risk,Exposure_Category,Source_System,Collection_Method,Collection_Date,
+Validation_Status,Classification,Notes
+
+LHT-ID-001,User,Administrator,Domain Administrator,LAB.LOCAL,IT/Admin,Active,True,Critical,Domain Admin,Tier-0,"Domain Admins;Enterprise Admins",2026-07-10,2026-01-15,
+Compliant,No,Unconstrained Delegation Review Required,Critical,Privileged Identity,Active Directory,PowerShell AD Query,2026-07-12,Validated,Internal,
+Primary administrative identity requiring Tier-0 protection
+
+LHT-ID-002,User,svc_backup,Backup Service Account,LAB.LOCAL,Service Accounts,Active,True,High,Backup Operator,Tier-1,"Backup Operators;Remote Management Users",
+2026-07-08,2025-12-20,Review Required,Yes,Service Account Review Required,High,Service Account Exposure,Active Directory,PowerShell AD Query,2026-07-12,Validated,
+Internal,Service account requiring privilege review and monitoring
+
+LHT-ID-003,User,john.smith,John Smith,LAB.LOCAL,Users,Active,True,Standard,None,Tier-2,"Domain Users",2026-07-09,2026-03-05,Compliant,No,None,Low,Standard User,
+Active Directory,PowerShell AD Query,2026-07-12,Validated,Internal,Standard user account
+
+LHT-ID-004,User,helpdesk.admin,Helpdesk Administrator,LAB.LOCAL,IT/Support,Active,True,High,Helpdesk Admin,Tier-1,"Helpdesk Admins;Remote Desktop Users",2026-07-11,
+2026-02-10,Review Required,No,Delegation Review Required,Medium,Privilege Exposure,Active Directory,PowerShell AD Query,2026-07-12,Validated,Internal,Elevated support 
+account requiring least privilege validation
+
+LHT-ID-005,Computer,DC01$,Domain Controller,LAB.LOCAL,Domain Controllers,Active,True,Critical,Domain Controller,Tier-0,"Domain Controllers",2026-07-12,N/A,N/A,No,None,
+Critical,Critical Infrastructure,Active Directory,PowerShell AD Query,2026-07-12,Validated,Internal,Domain controller asset requiring Tier-0 security controls
+
+LHT-ID-006,Computer,SERV01$,Application Server,LAB.LOCAL,Servers,Active,True,High,Server Identity,Tier-1,"Server Operators",2026-07-10,N/A,N/A,No,Kerberos Review 
+Required,High,Server Identity Exposure,Active Directory,PowerShell AD Query,2026-07-12,Validated,Internal,Server identity requiring authentication review

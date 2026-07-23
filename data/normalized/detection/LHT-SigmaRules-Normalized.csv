@@ -1,0 +1,51 @@
+Sigma_ID,Rule_ID,Rule_Title,Sigma_Status,Log_Source,Product,Service,Category,MITRE_Tactic,MITRE_Technique,MITRE_ID,Severity,Detection_Objective,Selection_Criteria,
+Filter_Criteria,False_Positive_Considerations,False_Negative_Considerations,Related_Splunk_ID,Validation_Status,Coverage_Status,Evidence_ID,Author,Version,
+Review_Frequency,Last_Validated,Notes
+
+SIG-001,RULE-001,Suspicious PowerShell Execution,Approved,Windows,windows,powershell,process_creation,Execution,PowerShell,T1059.001,High,Detect encoded or hidden 
+PowerShell execution,"EncodedCommand|Base64|Hidden Window",Approved administration scripts,"Legitimate automation may trigger","PowerShell logging disabled",SPL-001,
+Validated,Covered,EVD-DET-001,Detection Engineering Team,1.0,Quarterly,2026-07-22,Validated during Purple Team simulation
+
+SIG-002,RULE-002,Multiple Failed Logons,Approved,Windows,windows,security,authentication,Credential Access,Brute Force,T1110,Medium,Detect password spraying or 
+brute-force attempts,"Event ID 4625 threshold exceeded",Known service accounts,"Users entering incorrect passwords","Low-and-slow attacks",SPL-002,Validated,Covered,
+EVD-DET-002,Detection Engineering Team,1.0,Monthly,2026-07-22,Enterprise authentication monitoring
+
+SIG-003,RULE-003,Kerberoasting Detection,Approved,Windows,windows,security,kerberos,Credential Access,Kerberoasting,T1558.003,Critical,Detect abnormal Kerberos ticket 
+requests,"Multiple TGS requests for service accounts",Approved application accounts,"High-volume legitimate requests","Low-volume attacks",SPL-003,Validated,Covered,
+EVD-DET-003,Detection Engineering Team,1.0,Quarterly,2026-07-22,Enterprise AD monitoring
+
+SIG-004,RULE-004,Privileged Group Membership Changes,Approved,Windows,windows,security,group_management,Privilege Escalation,Account Manipulation,T1098,High,Detect 
+privileged group membership modifications,"Event IDs 4728;4729",Approved administrative changes,"Routine account administration","Offline directory changes",SPL-004,
+Validated,Covered,EVD-DET-004,Detection Engineering Team,1.0,Monthly,2026-07-22,Tier Zero monitoring
+
+SIG-005,RULE-005,Administrator Account Creation,Approved,Windows,windows,security,user_management,Persistence,Create Account,T1136,High,Detect creation of privileged 
+accounts,"Event IDs 4720;4732",Approved provisioning windows,"New employee onboarding","Manual account creation",SPL-005,Validated,Covered,EVD-DET-005,Detection 
+Engineering Team,1.0,Monthly,2026-07-22,Persistence monitoring
+
+SIG-006,RULE-006,Remote Service Installation,Approved,Windows,windows,system,service_creation,Lateral Movement,Remote Services,T1021,Critical,Detect remote service 
+creation associated with lateral movement,"Event ID 7045",Approved software deployment,"Legitimate software installation","Service creation outside monitored hosts",
+SPL-006,Validated,Covered,EVD-DET-006,Detection Engineering Team,1.0,Quarterly,2026-07-22,PsExec detection
+
+SIG-007,RULE-007,Process Injection Detection,Approved,Sysmon,windows,sysmon,process_access,Defense Evasion,Process Injection,T1055,High,Detect suspicious process 
+injection activity,"Sysmon Event ID 8",Security software activity,"Endpoint protection actions","Kernel-level injection",SPL-007,Validated,Covered,EVD-DET-007,
+Detection Engineering Team,1.0,Quarterly,2026-07-22,Endpoint behavioral analytics
+
+SIG-008,RULE-008,DNS Beaconing Detection,Draft,DNS,dns,resolver,dns_query,Command and Control,Application Layer Protocol,T1071,High,Detect repetitive DNS beaconing 
+behavior,"Repeated queries exceeding baseline",Known CDN domains,"Software update traffic","Low-frequency beaconing",SPL-008,Testing,Partial,EVD-DET-008,Detection 
+Engineering Team,0.9,Quarterly,2026-07-22,Requires tuning
+
+SIG-009,RULE-009,Suricata Malware Alert Correlation,Approved,Suricata,suricata,eve,network_alert,Execution,User Execution,T1204,High,Correlate IDS malware alerts with 
+endpoint evidence,"Suricata malware signature match",Known test malware,"Security validation exercises","Encrypted traffic",SPL-009,Validated,Covered,EVD-DET-009,
+Detection Engineering Team,1.0,Quarterly,2026-07-22,Network detection
+
+SIG-010,RULE-010,NTLM Authentication Usage,Approved,Windows,windows,security,authentication,Credential Access,Valid Accounts,T1078,Medium,Identify NTLM authentication 
+activity,"Event ID 4624 using NTLM",Legacy systems,"Legacy application authentication","Offline authentication",SPL-010,Validated,Covered,EVD-DET-010,Detection 
+Engineering Team,1.0,Monthly,2026-07-22,Supports NTLM reduction
+
+SIG-011,RULE-011,DCSync Activity Detection,Draft,Windows,windows,directory_services,directory_replication,Credential Access,OS Credential Dumping,T1003.006,Critical,
+Detect unauthorized directory replication,"Replication request from non-DC systems",Authorized replication,"Backup operations","Replication through trusted systems",
+SPL-011,Testing,Partial,EVD-DET-011,Detection Engineering Team,0.9,Quarterly,2026-07-22,Requires production validation
+
+SIG-012,RULE-012,GPO Modification Detection,Approved,Windows,windows,directory_services,object_modification,Privilege Escalation,Modify Authentication Process,T1556,
+High,Detect unauthorized Group Policy modifications,"Event ID 5136",Approved maintenance windows,"Authorized GPO administration","Direct SYSVOL modifications",SPL-012,
+Validated,Covered,EVD-DET-012,Detection Engineering Team,1.0,Quarterly,2026-07-22,Enterprise configuration protection

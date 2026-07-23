@@ -1,0 +1,95 @@
+LHT-PurpleTeam-Normalized.csv
+            │
+            │ Validation_ID
+            ▼
+LHT-Validation-Metadata.csv
+            │
+            ├── Evidence Governance
+            ├── QA Review
+            ├── Version Control
+            ├── Chain of Custody
+            ├── Documentation Traceability
+            └── Assessment Approval
+
+# ================================================================================
+# Lighthouse Technology - Enterprise Security Evolution
+# Domain 5 - Enterprise Active Directory Penetration Testing & Security Auditing
+# Phase F - Safe Purple Team Validation
+# Dataset: LHT-Validation-Metadata.csv
+#
+# PURPOSE
+# -------
+# This normalized dataset records governance, lifecycle, and audit metadata for
+# every authorized Purple Team validation exercise. It provides traceability
+# between assessment planning, execution, evidence collection, quality
+# assurance, approvals, and documentation.
+#
+# Rather than recording attack activity or telemetry, this dataset preserves the
+# administrative and governance information required to demonstrate assessment
+# integrity, evidence lineage, reproducibility, and audit readiness.
+#
+# RELATIONSHIPS
+# -------------
+# Parent Dataset
+#   • LHT-PurpleTeam-Normalized.csv
+#
+# Related Datasets
+#   • LHT-AttackSimulation-Normalized.csv
+#   • LHT-Telemetry-Normalized.csv
+#   • LHT-DetectionValidation-Normalized.csv
+#   • LHT-DetectionCoverage-Normalized.csv
+#
+# Primary Key
+#   • Metadata_Record_ID
+#
+# Foreign Key
+#   • Validation_ID
+#
+# DATA QUALITY REQUIREMENTS
+# -------------------------
+# • One metadata record per validation exercise.
+# • Validation_ID must reference an approved Purple Team exercise.
+# • All evidence identifiers must match the Evidence Register.
+# • Review and approval fields shall be completed before assessment closure.
+# • Dates and timestamps should use ISO-8601 format.
+# • Version history shall be maintained throughout the assessment lifecycle.
+# ================================================================================
+
+Metadata_Record_ID,Validation_ID,Assessment_ID,Assessment_Name,Assessment_Phase,Assessment_Status,Assessment_Scope,Assessment_Objective,Authorization_Reference,
+Evidence_Register_ID,Evidence_Manifest_ID,Evidence_Integrity_Status,Chain_of_Custody_Status,Documentation_Status,Quality_Assurance_Status,Peer_Review_Status,
+Review_Date,Reviewer,Approval_Status,Approver,Approval_Date,Repository_Path,Document_Version,Version_Status,Last_Modified_Date,Retention_Requirement,Related_Dataset,
+Assessment_Template,Security_Assessor,Assessment_Start_Date,Assessment_End_Date,Audit_Readiness_Status,Compliance_Reference,Lessons_Learned,Notes
+
+| Governance Area            | Purpose                                                                                |
+| -------------------------- | -------------------------------------------------------------------------------------- |
+| **Assessment Information** | Identifies the validation exercise and its current lifecycle stage.                    |
+| **Authorization & Scope**  | Demonstrates that testing was approved and conducted within scope.                     |
+| **Evidence Governance**    | Links evidence manifests, registers, integrity checks, and chain of custody.           |
+| **Quality Assurance**      | Records peer review, QA status, and reviewer approvals.                                |
+| **Version Control**        | Tracks document revisions and repository state over time.                              |
+| **Audit Readiness**        | Captures retention requirements, compliance references, and assessment closure status. |
+| **Knowledge Management**   | Preserves lessons learned and notes for continuous improvement.                        |
+
+Phase F — Safe Purple Team Validation
+
+LHT-PurpleTeam-Normalized.csv
+        │
+        ├──────────────┐
+        │              │
+        ▼              ▼
+Attack Simulation   Validation Metadata
+        │
+        ▼
+Telemetry
+        │
+        ▼
+Detection Validation
+        │
+        ▼
+Detection Coverage
+        │
+        ▼
+Remediation Engineering (Phase G)
+        │
+        ▼
+Executive Reporting (Phase I)

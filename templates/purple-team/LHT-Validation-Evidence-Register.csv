@@ -1,0 +1,30 @@
+Evidence_ID,Evidence_Name,Evidence_Category,Assessment_Area,Simulation_ID,Validation_ID,Detection_ID,Telemetry_Source,Description,Purpose,Source_System,
+Collection_Method,Evidence_Type,Classification,Collection_Status,Validation_Status,Related_Dataset,MITRE_Tactic,MITRE_Technique,Owner,Reviewer,Collection_Date,
+Storage_Location,Integrity_Status,Notes
+
+LHT-EVID-PT-001,Purple Team Exercise Plan,Planning,Purple Team Validation,PT-001,,,,Authorized Purple Team validation plan defining scope objectives and safety controls,
+Provide governance and execution oversight,Project Documentation,Manual Documentation,Planning Document,Internal,Planned,Pending,LHT-PurpleTeam-Normalized.csv,,,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Initial planning evidence
+
+LHT-EVID-PT-002,Attack Simulation Evidence,Attack Simulation,Attack Validation,PT-001,VAL-001,,,Evidence generated during controlled attack simulation,Validate security 
+control effectiveness,Authorized Lab Environment,Controlled Purple Team Exercise,Simulation Evidence,Internal,Planned,Pending,LHT-AttackSimulation-Normalized.csv,
+Execution,T1059,Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Attack execution evidence
+
+LHT-EVID-PT-003,Telemetry Collection Evidence,Telemetry,Telemetry Validation,PT-001,VAL-001,,Sysmon,Collected endpoint and operating system telemetry supporting 
+validation activities,Verify telemetry completeness and integrity,Windows Endpoint,Splunk Universal Forwarder,Telemetry Evidence,Internal,Planned,Pending,
+LHT-Telemetry-Normalized.csv,,,,Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Telemetry verification
+
+LHT-EVID-PT-004,Detection Validation Evidence,Detection Engineering,Detection Validation,PT-001,VAL-001,DET-001,Splunk Enterprise,Evidence confirming detection logic 
+execution and alert generation,Validate detection engineering effectiveness,Splunk Enterprise,SIEM Correlation,Detection Evidence,Internal,Planned,Pending,
+LHT-DetectionValidation-Normalized.csv,Credential Access,T1110,Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Detection 
+validation
+
+LHT-EVID-PT-005,Coverage Assessment Evidence,Detection Coverage,Coverage Assessment,PT-001,VAL-001,DET-001,Multiple Sources,Evidence supporting ATT&CK coverage 
+measurement and defensive visibility analysis,Measure enterprise detection coverage,Centralized Security Monitoring,Correlation Analysis,Coverage Evidence,Internal,
+Planned,Pending,LHT-DetectionCoverage-Normalized.csv,,,,Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Coverage 
+assessment
+
+LHT-EVID-PT-006,Evidence Correlation Package,Evidence Correlation,Purple Team Validation,PT-001,VAL-001,,Multiple Sources,Correlated evidence linking attack activity 
+telemetry detections and findings,Maintain evidence lineage across the validation lifecycle,Multiple Systems,Evidence Correlation Workflow,Correlation Evidence,
+Internal,Planned,Pending,LHT-Validation-Metadata.csv,,,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,evidence/validation/proposed,Pending,Evidence lineage package

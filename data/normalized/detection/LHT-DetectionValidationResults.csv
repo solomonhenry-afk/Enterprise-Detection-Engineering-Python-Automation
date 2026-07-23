@@ -1,0 +1,3 @@
+Simulation_ID,Detection_ID,Detection_Name,MITRE_ID,MITRE_Tactic,Simulation_Result,Detection_Fired,Validation_Date,Validated_By
+SIM-001,DET-001,Suspicious PowerShell Execution,T1059.001,Execution,PASS,Yes,2026-07-23,Detection Engineering Team
+SIM-002,DET-002,Authentication Brute Force Detection,T1110,Credential Access,PASS,Yes,2026-07-23,Detection Engineering Team

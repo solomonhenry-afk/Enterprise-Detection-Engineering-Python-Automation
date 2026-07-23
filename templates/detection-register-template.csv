@@ -1,0 +1,1 @@
+Detection_ID,Detection_Name,Detection_Type,Splunk_Search,Sigma_Rule,Event_IDs,Data_Source,MITRE_ATT&CK,Validation_Status,False_Positives,False_Negatives,Owner,Status,Last_Validated,Notes

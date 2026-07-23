@@ -1,0 +1,51 @@
+Checklist_ID,Checklist_Category,Validation_Phase,Checklist_Item,Description,Expected_Result,Evidence_Required,Assessment_Status,Validation_Status,Related_Dataset,
+Related_Document,MITRE_Mapping,Owner,Reviewer,Assessment_Date,Notes
+
+LHT-PT-001,Planning,Pre-Validation,Assessment Scope Approved,Verify assessment objectives scope assets and authorization are formally approved,Authorized assessment 
+scope documented,Approved assessment plan,Pending,Pending,LHT-PurpleTeam-Normalized.csv,Purple-Team-Validation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology
+Security Team,,
+
+LHT-PT-002,Safety,Pre-Validation,Safety Controls Verified,Confirm production isolation rollback procedures VM snapshots and recovery plans are available,Safe execution 
+environment verified,Safety checklist completed,Pending,Pending,LHT-Validation-Metadata.csv,Validation-Safety-Standard.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-PT-003,Environment,Pre-Validation,Target Systems Verified,Validate target hosts accounts and services are available and operational,Lab environment ready,System 
+inventory,Pending,Pending,LHT-AttackSimulation-Normalized.csv,Purple-Team-Validation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-004,Telemetry,Pre-Validation,Telemetry Collection Enabled,Verify Sysmon Windows Event Logs Splunk Active Directory DNS and firewall logging are enabled,Required 
+telemetry available,Telemetry validation results,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-005,Detection,Pre-Validation,Detection Rules Enabled,Confirm required SIEM detection rules are deployed active and validated before testing,Detection rules 
+operational,Detection inventory,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-PT-006,Simulation,Execution,Attack Simulation Executed,Execute the approved attack scenario within the authorized laboratory environment,Simulation completed 
+successfully,Attack simulation evidence,Pending,Pending,LHT-AttackSimulation-Normalized.csv,Purple-Team-Validation-Methodology.md,MITRE ATT&CK,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-007,Telemetry,Execution,Telemetry Captured,Confirm expected endpoint identity authentication and network telemetry was collected,Complete telemetry available,
+Collected logs,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-008,Detection,Execution,Detection Triggered,Verify the simulated activity generated the expected SIEM alerts and detection events,Expected alerts generated,SIEM 
+alert evidence,Pending,Pending,LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security 
+Team,,
+
+LHT-PT-009,Coverage,Execution,ATT&CK Coverage Verified,Confirm simulated techniques are mapped to ATT&CK tactics and supported by detection coverage,Coverage documented,
+Coverage assessment report,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse 
+Technology Security Team,,
+
+LHT-PT-010,Evidence,Post-Validation,Evidence Correlated,Validate evidence lineage across simulation telemetry detections and assessment findings,Evidence fully 
+correlated,Evidence register,Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-011,Reporting,Post-Validation,Assessment Reports Completed,Confirm all Phase F assessment templates are completed and reviewed,Assessment documentation finalized,
+Completed assessment reports,Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security 
+Team,,
+
+LHT-PT-012,Remediation,Post-Validation,Improvement Actions Identified,Document detection gaps telemetry improvements and remediation recommendations,Improvement plan 
+completed,Remediation recommendations,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-PT-013,Approval,Post-Validation,Assessment Approved,Verify assessor and reviewer have approved the completed Purple Team validation,Assessment formally approved,
+Signed assessment documentation,Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,

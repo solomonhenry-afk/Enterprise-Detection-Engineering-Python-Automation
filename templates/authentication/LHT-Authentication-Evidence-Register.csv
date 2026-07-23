@@ -1,0 +1,34 @@
+Evidence_ID,Evidence_Name,Evidence_Category,Assessment_Domain,Evidence_Purpose,Source_System,Collection_Method,Evidence_Type,Evidence_State,Validation_State,
+Normalized_Dataset,Related_Finding_ID,MITRE_Category,Owner,Reviewer,Storage_Path,Integrity_Status,Notes
+
+LHT-Evidence-AUTH-001,Authentication Configuration Baseline,Configuration Assessment,Authentication Security,Establish baseline authentication security posture,
+Active Directory,Authorized configuration export,Configuration Evidence,Proposed,Not Validated,LHT-Authentication-Normalized.csv,None,None,
+Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Initial evidence definition
+
+LHT-Evidence-AUTH-002,Kerberos Configuration Review,Kerberos Security,Authentication Security,Assess Kerberos encryption policies ticket configuration and 
+authentication controls,Active Directory,GPO and directory configuration review,Configuration Evidence,Proposed,Not Validated,LHT-Kerberos-Normalized.csv,None,
+Credential Access,Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Supports Kerberos security assessment
+
+LHT-Evidence-AUTH-003,NTLM Configuration Review,NTLM Exposure,Authentication Security,Identify legacy authentication usage and security exposure,Active Directory,
+Security policy review,Configuration Evidence,Proposed,Not Validated,LHT-NTLM-Normalized.csv,None,Credential Access,LHT Security Team,
+Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Supports NTLM exposure assessment
+
+LHT-Evidence-AUTH-004,Password Policy Assessment Evidence,Credential Security,Authentication Security,Validate password governance and credential protection controls,
+Group Policy,Policy export and configuration review,Configuration Evidence,Proposed,Not Validated,LHT-PasswordPolicy-Normalized.csv,None,Credential Access,
+Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Supports password security review
+
+LHT-Evidence-AUTH-005,Service Account Inventory Evidence,Identity Security,Authentication Security,Identify service accounts ownership privilege and authentication 
+dependencies,Active Directory,Identity inventory collection,Identity Evidence,Proposed,Not Validated,LHT-ServiceAccount-Normalized.csv,None,
+Credential Access,Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Supports service account assessment
+
+LHT-Evidence-AUTH-006,Delegation Configuration Evidence,Delegation Security,Authentication Security,Identify authentication delegation relationships and 
+privilege exposure,Active Directory,Directory relationship analysis,Identity Relationship Evidence,Proposed,Not Validated,LHT-Delegation-Normalized.csv,None,
+Privilege Escalation,Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Supports delegation assessment
+
+LHT-Evidence-AUTH-007,Authentication Event Telemetry,Detection Validation,SOC Monitoring,Validate authentication visibility and detection coverage,Windows Event Logs 
+and Splunk,Authorized log collection,Telemetry Evidence,Proposed,Not Validated,None,None,Detection Engineering,Bassey Solomon Henry,Lighthouse Technology Security Team,
+evidence/authentication/proposed/,Pending,Domain 1 telemetry integration
+
+LHT-Evidence-AUTH-008,Authentication Detection Validation Results,Purple Team Validation,Detection Engineering,Measure detection effectiveness against authentication 
+security scenarios,Splunk and Detection Platform,Controlled validation exercise,Detection Evidence,Proposed,Not Validated,None,None,ATT&CK Validation,
+Bassey Solomon Henry,Lighthouse Technology Security Team,evidence/authentication/proposed/,Pending,Domain 2 Purple Team integration

@@ -1,0 +1,49 @@
+Checklist_ID,Checklist_Category,Telemetry_Domain,Telemetry_Source,Validation_Check,Expected_Result,Evidence_Required,Assessment_Status,Validation_Status,
+Related_Dataset,Related_Document,Owner,Reviewer,Assessment_Date,Notes
+
+LHT-TEL-001,Infrastructure,Time Synchronization,All Systems,Verify all systems use synchronized time sources,Consistent timestamps across telemetry,
+NTP verification,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-002,Infrastructure,Log Collection,Splunk Universal Forwarder,Verify forwarders are operational and transmitting logs,Logs successfully forwarded,
+Splunk Forwarder status,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-003,Endpoint,Windows Security Logs,Windows Event Logs,Verify authentication privilege and audit events are collected,Required Event IDs available,
+Windows Security Events,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-004,Endpoint,Endpoint Monitoring,Sysmon,Verify Sysmon captures process creation network connections registry and image load events,Endpoint telemetry complete,
+Sysmon Operational Log,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-005,Identity,Authentication,Active Directory,Verify directory authentication events are collected,Authentication events available,Domain Controller Security 
+Logs,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-006,Identity,Kerberos,Kerberos Logs,Verify Kerberos authentication events are available,Kerberos tickets captured,Kerberos Event IDs,Pending,Pending,
+LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-007,Identity,NTLM,NTLM Authentication,Verify NTLM authentication activity is logged,NTLM authentication visible,NTLM Events,Pending,Pending,
+LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-008,Identity,PowerShell,PowerShell Operational Logs,Verify script block logging and PowerShell operational logs are enabled,PowerShell activity recorded,
+PowerShell Operational Events,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-009,Network,DNS,DNS Logs,Verify DNS request logging is operational,DNS queries captured,DNS Server Logs,Pending,Pending,LHT-Telemetry-Normalized.csv,
+Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-010,Network,Firewall,pfSense Firewall,Verify firewall traffic logs are collected,Network traffic visible,Firewall Logs,Pending,Pending,
+LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-011,Network,Intrusion Detection,Suricata IDS,Verify IDS alerts are generated and forwarded,IDS alerts available,Suricata Alerts,Pending,Pending,
+LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-012,Detection,SIEM,Splunk Enterprise,Verify all telemetry is searchable within Splunk,Events searchable and indexed,Splunk Search Results,Pending,Pending,
+LHT-DetectionValidation-Normalized.csv,Detection-Validation-Workflow.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-013,Quality,Telemetry Integrity,Centralized Logging,Verify events contain complete metadata timestamps hostnames usernames and source attribution,Complete 
+event metadata available,Sample event review,Pending,Pending,LHT-Telemetry-Normalized.csv,Evidence-Correlation-Methodology.md,Bassey Solomon Henry,Lighthouse Technolog 
+Security Team,,
+
+LHT-TEL-014,Quality,Evidence Correlation,Multiple Sources,Verify telemetry supports cross-source evidence correlation,Events correlate successfully,Correlation 
+validation,Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-TEL-015,Quality,Detection Readiness,Enterprise Telemetry,Verify telemetry supports ATT&CK mapping detection engineering and incident investigation,Telemetry ready 
+for Purple Team validation,Telemetry assessment report,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Telemetry-Assessment-Template.md,
+Bassey Solomon Henry,Lighthouse Technology Security Team,,

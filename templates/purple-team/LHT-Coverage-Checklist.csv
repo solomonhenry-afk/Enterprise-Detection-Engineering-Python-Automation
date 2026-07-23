@@ -1,0 +1,55 @@
+Checklist_ID,Checklist_Category,Coverage_Domain,Coverage_Component,Validation_Check,Expected_Result,Evidence_Required,Assessment_Status,Validation_Status,
+Related_Dataset,Related_Document,MITRE_Mapping,Owner,Reviewer,Assessment_Date,Notes
+
+LHT-COV-001,Planning,Coverage Assessment,Assessment Scope,Verify the ATT&CK techniques and security scenarios selected for coverage assessment are documented,
+Assessment scope approved,Coverage assessment plan,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,,Bassey Solomon Henry,
+Lighthouse Technology Security Team,,
+
+LHT-COV-002,Telemetry,Coverage Assessment,Telemetry Availability,Verify all required telemetry sources are available to support coverage analysis,Telemetry confirmed,
+Telemetry validation report,Pending,Pending,LHT-Telemetry-Normalized.csv,Telemetry-Collection-Runbook.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-003,Detection,Coverage Assessment,Detection Mapping,Verify each ATT&CK technique is mapped to one or more detection rules,Detection mapping complete,Detection 
+mapping documentation,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,Detection-Validation-Workflow.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,
+
+LHT-COV-004,Detection,Coverage Assessment,Detection Validation,Verify mapped detections successfully triggered during attack simulations,Validated detections confirmed,
+Detection validation evidence,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse 
+Technology Security Team,,
+
+LHT-COV-005,Simulation,Coverage Assessment,Technique Validation,Verify simulated ATT&CK techniques were successfully executed and observed,Simulation evidence 
+available,Attack simulation logs,Pending,Pending,LHT-AttackSimulation-Normalized.csv,LHT-Attack-Simulation-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse 
+Technology Security Team,,
+
+LHT-COV-006,Analysis,Coverage Assessment,Coverage Completeness,Verify all planned attack techniques have corresponding telemetry and detections,Complete coverage 
+achieved,Coverage matrix,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse 
+Technology Security Team,,
+
+LHT-COV-007,Analysis,Coverage Assessment,Visibility Gaps,Identify ATT&CK techniques lacking telemetry or detection coverage,Coverage gaps documented,Gap analysis 
+report,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-008,Analysis,Coverage Assessment,Detection Quality,Verify detections accurately identify malicious activity while minimizing false positives,Detection quality 
+validated,Detection performance report,Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse 
+Technology Security Team,,
+
+LHT-COV-009,Analysis,Coverage Assessment,False Negative Review,Verify attack simulations did not expose missed detections,False negatives documented,Validation report,
+Pending,Pending,LHT-DetectionValidation-Normalized.csv,LHT-Detection-Validation-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-010,Analysis,Coverage Assessment,Correlation Validation,Verify telemetry from multiple sources supports reliable evidence correlation,Correlation confirmed,
+Correlation analysis,Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-011,Improvement,Coverage Assessment,Tuning Recommendations,Document opportunities to improve detection coverage and reduce blind spots,Tuning recommendations 
+completed,Tuning report,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security 
+Team,,
+
+LHT-COV-012,Improvement,Coverage Assessment,ATT&CK Heat Map,Verify ATT&CK coverage metrics and heat map are updated,Coverage metrics updated,Coverage dashboard,Pending,
+Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,MITRE ATT&CK,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-013,Reporting,Coverage Assessment,Executive Summary,Verify coverage findings are translated into business-focused reporting,Executive summary completed,
+Assessment report,Pending,Pending,LHT-PurpleTeam-Normalized.csv,LHT-PurpleTeam-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-014,Reporting,Coverage Assessment,Evidence Validation,Verify all coverage findings are supported by traceable evidence,Evidence validated,Evidence register,
+Pending,Pending,LHT-Validation-Metadata.csv,Evidence-Correlation-Methodology.md,,Bassey Solomon Henry,Lighthouse Technology Security Team,,
+
+LHT-COV-015,Closure,Coverage Assessment,Assessment Closure,Verify the coverage assessment has been reviewed, approved, and formally closed,Coverage assessment 
+completed,Final assessment package,Pending,Pending,LHT-DetectionCoverage-Normalized.csv,LHT-Coverage-Assessment-Template.md,,Bassey Solomon Henry,Lighthouse Technology 
+Security Team,,

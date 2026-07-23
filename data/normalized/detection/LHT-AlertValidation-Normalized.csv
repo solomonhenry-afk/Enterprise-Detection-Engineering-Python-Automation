@@ -1,0 +1,51 @@
+Alert_Validation_ID,Alert_ID,Detection_ID,Rule_ID,Sigma_ID,Splunk_Search_ID,Attack_Simulation_ID,Scenario_Name,Alert_Name,MITRE_Tactic,MITRE_Technique,MITRE_ID,
+Telemetry_Source,Alert_Time,Expected_Result,Observed_Result,Validation_Result,Detection_Accuracy,False_Positive,False_Negative,Analyst_Action,Evidence_ID,
+Evidence_Status,Validation_Date,Validated_By,Review_Status,Notes
+
+ALV-001,ALT-001,DET-001,RULE-001,SIG-001,SPL-001,SIM-001,Encoded PowerShell Execution,Suspicious PowerShell Execution,Execution,PowerShell,T1059.001,Sysmon Event ID 1; 
+PowerShell Operational Logs,2026-07-22T09:10:00Z,Alert generated for encoded PowerShell,Alert triggered successfully,Pass,98%,No,No,Triage completed and evidence 
+collected,EVD-DET-001,Verified,2026-07-22,Detection Engineering Team,Approved,Purple Team validation successful
+
+ALV-002,ALT-002,DET-002,RULE-002,SIG-002,SPL-002,SIM-002,Password Spraying,Multiple Failed Logons,Credential Access,Brute Force,T1110,Windows Security Event ID 4625,
+2026-07-22T09:32:00Z,Alert after threshold exceeded,Alert triggered successfully,Pass,95%,No,No,Investigated authentication source,EVD-DET-002,Verified,2026-07-22,
+Detection Engineering Team,Approved,Threshold validated
+
+ALV-003,ALT-003,DET-003,RULE-003,SIG-003,SPL-003,SIM-003,Kerberoasting Activity,Kerberoasting Detection,Credential Access,Kerberoasting,T1558.003,Kerberos Event ID 4769,
+2026-07-22T10:05:00Z,Detect abnormal TGS requests,Alert generated successfully,Pass,96%,Low,No,Reviewed service account activity,EVD-DET-003,Verified,2026-07-22,
+Detection Engineering Team,Approved,Enterprise AD validation
+
+ALV-004,ALT-004,DET-004,RULE-004,SIG-004,SPL-004,SIM-004,Privilege Group Modification,Privileged Group Membership Changes,Privilege Escalation,Account Manipulation,
+T1098,Windows Security Events 4728/4729,2026-07-22T10:25:00Z,Immediate privileged group alert,Alert generated successfully,Pass,97%,No,No,Validated against change 
+records,EVD-DET-004,Verified,2026-07-22,Detection Engineering Team,Approved,Tier Zero monitoring
+
+ALV-005,ALT-005,DET-005,RULE-005,SIG-005,SPL-005,SIM-005,Administrator Account Creation,Administrator Account Created,Persistence,Create Account,T1136,Windows Security 
+Events 4720/4732,2026-07-22T10:44:00Z,Detect privileged account creation,Alert generated successfully,Pass,95%,Low,No,Verified account approval,EVD-DET-005,Verified,
+2026-07-22,Detection Engineering Team,Approved,Persistence detection
+
+ALV-006,ALT-006,DET-006,RULE-006,SIG-006,SPL-006,SIM-006,PsExec Remote Service Creation,Remote Service Installation,Lateral Movement,Remote Services,T1021,System Event 
+ID 7045,2026-07-22T11:03:00Z,Alert for remote service creation,Alert generated successfully,Pass,96%,No,Low,Reviewed service installation,EVD-DET-006,Verified,
+2026-07-22,Detection Engineering Team,Approved,Lateral movement simulation
+
+ALV-007,ALT-007,DET-007,RULE-007,SIG-007,SPL-007,SIM-007,Process Injection Simulation,Process Injection Detection,Defense Evasion,Process Injection,T1055,Sysmon Event 
+ID 8,2026-07-22T11:30:00Z,Detect process injection,Alert generated successfully,Pass,94%,Medium,Low,Correlated endpoint telemetry,EVD-DET-007,Verified,2026-07-22,
+Detection Engineering Team,Approved,Behavior-based detection
+
+ALV-008,ALT-008,DET-008,RULE-008,SIG-008,SPL-008,SIM-008,DNS Beaconing,DNS Beacon Detection,Command and Control,Application Layer Protocol,T1071,DNS Query Logs,
+2026-07-22T11:55:00Z,Detect beacon frequency anomaly,Alert partially triggered,Partial,82%,Medium,Medium,Tuning required,EVD-DET-008,Pending,2026-07-22,
+Detection Engineering Team,Under Review,Detection tuning in progress
+
+ALV-009,ALT-009,DET-009,RULE-009,SIG-009,SPL-009,SIM-009,Malware Network Activity,Suricata Malware Alert,Execution,User Execution,T1204,Suricata EVE JSON,
+2026-07-22T12:18:00Z,Generate IDS malware alert,Alert generated successfully,Pass,96%,Low,No,Validated network correlation,EVD-DET-009,Verified,2026-07-22,
+Detection Engineering Team,Approved,IDS validation
+
+ALV-010,ALT-010,DET-010,RULE-010,SIG-010,SPL-010,SIM-010,Legacy NTLM Authentication,NTLM Authentication Usage,Credential Access,Valid Accounts,T1078,Windows Security 
+Event ID 4624,2026-07-22T12:42:00Z,Identify NTLM authentication,Alert generated successfully,Pass,92%,Low,Low,Reviewed legacy systems,EVD-DET-010,Verified,2026-07-22,
+Detection Engineering Team,Approved,Identity modernization
+
+ALV-011,ALT-011,DET-011,RULE-011,SIG-011,SPL-011,SIM-011,DCSync Simulation,DCSync Activity Detection,Credential Access,OS Credential Dumping,T1003.006,Directory 
+Replication Logs,2026-07-22T13:15:00Z,Detect unauthorized replication,Alert partially triggered,Partial,87%,Low,Medium,Additional tuning recommended,EVD-DET-011,
+Pending,2026-07-22,Detection Engineering Team,Under Review,Production validation pending
+
+ALV-012,ALT-012,DET-012,RULE-012,SIG-012,SPL-012,SIM-012,GPO Modification Simulation,GPO Modification Detection,Privilege Escalation,Modify Authentication Process,
+T1556,Directory Service Event ID 5136,2026-07-22T13:45:00Z,Detect unauthorized GPO changes,Alert generated successfully,Pass,97%,No,No,Validated against approved 
+changes,EVD-DET-012,Verified,2026-07-22,Detection Engineering Team,Approved,Enterprise configuration monitoring

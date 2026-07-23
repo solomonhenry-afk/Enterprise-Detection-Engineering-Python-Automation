@@ -1,0 +1,39 @@
+Metric_ID,Reporting_Period,Detection_ID,Detection_Name,Rule_ID,Splunk_Search_ID,Sigma_ID,MITRE_Tactic,MITRE_ID,Alerts_Generated,True_Positives,False_Positives,
+False_Negatives,Detection_Accuracy_Pct,Precision_Pct,Recall_Pct,False_Positive_Rate_Pct,MTTD_Minutes,MTTR_Minutes,Coverage_Level,Validation_Status,Residual_Risk,Trend,
+Owner,Last_Updated,Notes
+
+MET-001,2026-Q3,DET-001,Suspicious PowerShell Execution,RULE-001,SPL-001,SIG-001,Execution,T1059.001,48,46,2,0,95.83,95.83,100.00,4.17,3,18,High,Validated,Low,Improving,
+Detection Engineering Team,2026-07-22,Validated during Purple Team exercise
+
+MET-002,2026-Q3,DET-002,Failed Logon Correlation,RULE-002,SPL-002,SIG-002,Credential Access,T1110,73,69,4,1,94.52,94.52,98.57,5.48,2,15,High,Validated,Low,Stable,
+Detection Engineering Team,2026-07-22,Password spraying analytics
+
+MET-003,2026-Q3,DET-003,Kerberoasting Detection,RULE-003,SPL-003,SIG-003,Credential Access,T1558.003,22,21,1,0,95.45,95.45,100.00,4.55,4,21,High,Validated,Low,Improving,
+Detection Engineering Team,2026-07-22,Identity detection
+
+MET-004,2026-Q3,DET-004,Privileged Group Changes,RULE-004,SPL-004,SIG-004,Privilege Escalation,T1098,15,15,0,0,100.00,100.00,100.00,0.00,1,10,High,Validated,Low,Stable,
+Detection Engineering Team,2026-07-22,Tier Zero monitoring
+
+MET-005,2026-Q3,DET-005,Administrator Account Creation,RULE-005,SPL-005,SIG-005,Persistence,T1136,18,17,1,0,94.44,94.44,100.00,5.56,2,16,High,Validated,Low,Stable,
+Detection Engineering Team,2026-07-22,Identity governance
+
+MET-006,2026-Q3,DET-006,Remote Service Installation,RULE-006,SPL-006,SIG-006,Lateral Movement,T1021,12,11,1,0,91.67,91.67,100.00,8.33,3,22,High,Validated,Low,Improving,
+Detection Engineering Team,2026-07-22,PsExec detection
+
+MET-007,2026-Q3,DET-007,Process Injection Detection,RULE-007,SPL-007,SIG-007,Defense Evasion,T1055,20,18,2,1,90.00,90.00,94.74,10.00,4,28,High,Validated,Medium,
+Improving,Detection Engineering Team,2026-07-22,Behavioral analytics
+
+MET-008,2026-Q3,DET-008,DNS Beacon Detection,RULE-008,SPL-008,SIG-008,Command and Control,T1071,35,26,8,2,74.29,76.47,92.86,22.86,6,35,Medium,Testing,Medium,Needs 
+Tuning,Detection Engineering Team,2026-07-22,Detection tuning ongoing
+
+MET-009,2026-Q3,DET-009,Suricata Malware Detection,RULE-009,SPL-009,SIG-009,Execution,T1204,29,28,1,0,96.55,96.55,100.00,3.45,2,14,High,Validated,Low,Stable,
+Detection Engineering Team,2026-07-22,Network IDS correlation
+
+MET-010,2026-Q3,DET-010,NTLM Authentication Monitoring,RULE-010,SPL-010,SIG-010,Credential Access,T1078,54,49,5,1,90.74,90.74,98.00,9.26,3,20,High,Validated,Medium,
+Stable,Detection Engineering Team,2026-07-22,Legacy authentication visibility
+
+MET-011,2026-Q3,DET-011,DCSync Detection,RULE-011,SPL-011,SIG-011,Credential Access,T1003.006,10,8,1,1,80.00,88.89,88.89,10.00,5,31,Medium,Testing,Medium,Needs 
+Improvement,Detection Engineering Team,2026-07-22,Awaiting production validation
+
+MET-012,2026-Q3,DET-012,GPO Modification Detection,RULE-012,SPL-012,SIG-012,Privilege Escalation,T1556,16,16,0,0,100.00,100.00,100.00,0.00,2,12,High,Validated,Low,
+Stable,Detection Engineering Team,2026-07-22,Configuration integrity monitoring

@@ -1,0 +1,167 @@
+# Lighthouse Technology
+# Enterprise Security Evolution
+# Domain 5 — Enterprise Active Directory Penetration Testing & Security Auditing
+#
+# Dataset: LHT-Kerberos-Normalized.csv
+# Purpose:
+# This normalized dataset captures Kerberos-related assessment observations
+# collected from the authorized Lighthouse Technology Active Directory lab.
+#
+# It supports:
+# - Kerberos security assessment
+# - Authentication security analysis
+# - Service account assessment
+# - Attack-path research
+# - Detection engineering
+# - MITRE ATT&CK mapping
+# - Risk analytics
+#
+# Evidence Status:
+# This file is a schema definition during the design phase.
+# No assessment findings or collected evidence shall be recorded until
+# authorized collection activities have been completed.
+
+Kerberos_Record_ID,Identity_ID,System_ID,Relationship_ID,Collection_Metadata_ID,Service_Principal_Name,Kerberos_Function,Encryption_Type,Ticket_Type,Delegation_Type,PreAuthentication_Required,Service_Account_ID,Authentication_Target,Ticket_Lifetime,Renewal_Lifetime,Supported_Encryption,Kerberos_Policy_Reference,Evidence_ID,Evidence_Source,Evidence_Status,Validation_Status,Detection_Coverage,Telemetry_Source,Related_Event_IDs,MITRE_ATTCK_Technique,Risk_Rating,Assessment_Phase,Assessment_Date,Assessor,Comments
+
+# ------------------------------------------------------------------
+# DATA DICTIONARY
+# ------------------------------------------------------------------
+
+# Kerberos_Record_ID
+# Unique identifier for each Kerberos assessment observation.
+
+# Identity_ID
+# References the identity stored within
+# LHT-Identity-Normalized.csv.
+
+# System_ID
+# References the related computer or server stored within
+# LHT-System-Normalized.csv.
+
+# Relationship_ID
+# References authentication or privilege relationships stored within
+# LHT-Relationship-Normalized.csv.
+
+# Collection_Metadata_ID
+# References collection metadata recorded within
+# LHT-Collection-Metadata.csv.
+
+# Service_Principal_Name
+# Associated SPN when applicable.
+
+# Kerberos_Function
+# Authentication role being assessed.
+# Examples:
+# - User Authentication
+# - Service Authentication
+# - Ticket Granting
+# - Ticket Validation
+
+# Encryption_Type
+# Kerberos encryption observed.
+# Examples:
+# AES128
+# AES256
+# RC4
+# DES (legacy)
+
+# Ticket_Type
+# Examples:
+# TGT
+# TGS
+
+# Delegation_Type
+# Examples:
+# None
+# Constrained
+# Unconstrained
+# Resource-Based Constrained Delegation
+
+# PreAuthentication_Required
+# Indicates whether Kerberos pre-authentication is enabled.
+
+# Service_Account_ID
+# References the associated service account within the normalized
+# identity inventory where applicable.
+
+# Authentication_Target
+# Target service or host using Kerberos authentication.
+
+# Ticket_Lifetime
+# Configured Kerberos ticket lifetime.
+
+# Renewal_Lifetime
+# Maximum ticket renewal period.
+
+# Supported_Encryption
+# Enterprise-supported Kerberos encryption algorithms.
+
+# Kerberos_Policy_Reference
+# Reference to applicable Kerberos policy or Group Policy object.
+
+# Evidence_ID
+# Lighthouse Evidence Identifier.
+# Example:
+# LHT-Evidence-###
+
+# Evidence_Source
+# Collection source.
+# Examples:
+# Windows Security Log
+# Splunk
+# PowerShell
+# ADRecon
+# PingCastle
+
+# Evidence_Status
+# Proposed
+# Collected
+# Validated
+# Simulated
+# Remediated
+
+# Validation_Status
+# Pending
+# Validated
+# Rejected
+
+# Detection_Coverage
+# Indicates whether monitoring exists.
+# Examples:
+# Yes
+# Partial
+# No
+
+# Telemetry_Source
+# Source of supporting telemetry.
+# Examples:
+# Windows Event Logs
+# Sysmon
+# Splunk
+
+# Related_Event_IDs
+# Relevant Windows Security Event IDs associated with Kerberos activity.
+
+# MITRE_ATTCK_Technique
+# Associated ATT&CK technique(s), where applicable.
+
+# Risk_Rating
+# Informational
+# Low
+# Medium
+# High
+# Critical
+
+# Assessment_Phase
+# Enterprise Security Evolution phase responsible for producing
+# this observation.
+
+# Assessment_Date
+# Date the assessment observation was recorded.
+
+# Assessor
+# Security assessor responsible for validation.
+
+# Comments
+# Additional notes supporting analysis, governance,
+# detection engineering, or remediation planning.

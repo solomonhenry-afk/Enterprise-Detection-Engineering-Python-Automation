@@ -1,0 +1,20 @@
+title: LHT Suspicious PowerShell Execution Detection
+id: f1058c43-ee91-4fc0-8610-1150917916ba
+status: experimental
+description: Detects suspicious PowerShell execution activity
+author: Lighthouse Technology Detection Engineering Team
+date: '2026-07-22'
+references: []
+tags:
+- attack.execution
+- attack.t1059
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4688
+  condition: selection
+falsepositives:
+- Legitimate administrative activity
+level: high

@@ -1,0 +1,37 @@
+Checklist_ID,Assessment_Area,Control_Category,Assessment_Check,Evidence_Required,Source_System,Validation_Method,Evidence_State,Validation_Status,Risk_Impact,
+Related_Dataset,Related_Finding_ID,Remediation_Reference,Notes
+
+LHT-KRB-001,Kerberos Security,Configuration Review,Verify Kerberos authentication configuration baseline,Kerberos policy configuration evidence,Active Directory,
+GPO and directory configuration review,Proposed,Pending,Determines baseline authentication security posture,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-KRB-001,
+Initial assessment item
+
+LHT-KRB-002,Kerberos Security,Encryption Controls,Review supported Kerberos encryption algorithms,Encryption configuration and policy evidence,Active Directory,
+Configuration validation,Proposed,Pending,Weak encryption may increase credential exposure risk,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-KRB-002,
+Review legacy encryption dependencies
+
+LHT-KRB-003,Kerberos Security,Pre-Authentication,Validate Kerberos pre-authentication settings,User account authentication configuration,Active Directory,
+Identity configuration review,Proposed,Pending,Incorrect configuration may increase authentication risk,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-KRB-003,
+Document exceptions
+
+LHT-KRB-004,Kerberos Security,Service Principal Names,Review SPN inventory and ownership,SPN inventory and service mapping,Active Directory,Directory analysis,Proposed,
+Pending,Unmanaged SPNs increase service identity risk,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-KRB-004,Validate business ownership
+
+LHT-KRB-005,Kerberos Security,Service Accounts,Assess service accounts using Kerberos authentication,Service account inventory and authentication mapping,
+Active Directory,Identity relationship analysis,Proposed,Pending,High privilege service identities increase attack surface,LHT-ServiceAccount-Normalized.csv,None,
+LHT-Remediation-SA-001,Link with service account assessment
+
+LHT-KRB-006,Kerberos Security,Delegation,Review Kerberos delegation configurations,Delegation relationship evidence,Active Directory,Delegation analysis,Proposed,
+Pending,Excessive delegation may expose privileged authentication paths,LHT-Delegation-Normalized.csv,None,LHT-Remediation-DEL-001,Requires Tier Zero review
+
+LHT-KRB-007,Kerberos Security,Tier Zero Protection,Identify privileged identities relying on Kerberos authentication,Tier Zero identity inventory,Active Directory,Tier 
+classification review,Proposed,Pending,Compromise may impact enterprise control plane,LHT-TierZero-Inventory.csv,None,LHT-Remediation-T0-001,Integrates with Tier Zero 
+assessment
+
+LHT-KRB-008,Kerberos Security,Telemetry Validation,Confirm Kerberos authentication events are collected,Windows authentication events and Splunk searches,Windows Event 
+Logs/Splunk,Detection validation,Proposed,Pending,Lack of visibility reduces detection capability,None,None,LHT-Remediation-DET-001,Domain 1 integration
+
+LHT-KRB-009,Kerberos Security,Detection Engineering,Validate Kerberos-related detection coverage,Sigma rules and Splunk detections,Splunk/Sigma,Controlled validation 
+exercise,Proposed,Pending,Detection gaps increase response time,None,None,LHT-Remediation-DET-002,Domain 2 Purple Team integration
+
+LHT-KRB-010,Kerberos Security,Remediation Validation,Confirm security improvements after remediation,Before and after configuration evidence,Active Directory,
+Retest comparison,Proposed,Pending,Ensures risk reduction is measurable,LHT-Kerberos-Normalized.csv,None,LHT-Remediation-VAL-001,Final validation activity
